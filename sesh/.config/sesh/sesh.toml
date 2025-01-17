@@ -1,0 +1,21 @@
+[[session]]
+name = "ND-Netdaemon 🚀"
+path = "~/git/netdaemon"
+startup_command = "~/.config/sesh/scripts/dev.sh"
+
+[[session]]
+name = "ND-Docs 📃"
+path = "~/git/docs"
+startup_command = "~/.config/sesh/scripts/dev.sh"
+
+[[session]]
+name = "Dotfiles 🖥️"
+path = "~/git/dotfiles"
+
+[[session]]
+name = "Home Assistant 🏠"
+path = "/mnt/homeassistant"
+
+[[session]]
+name = "Notes 🗒️"
+path = "/mnt/home/Obsidian"

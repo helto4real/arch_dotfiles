@@ -6,3 +6,5 @@ ansible-vault decrypt ~/.config/bash/gpgkeys.sh --vault-password-file ~/.ansible
 
 # import the yubikey public key
 # gpg --armor --import pub.asc
+
+
