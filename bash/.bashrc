@@ -153,3 +153,17 @@ source "$OSH"/oh-my-bash.sh
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
+for file in $HOME/.config/bash/*.sh; do
+  source "$file"
+done
+
+toilet "Helto4Real" -F border:metal -f emboss2
+
