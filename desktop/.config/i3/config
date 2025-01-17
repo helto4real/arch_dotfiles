@@ -15,11 +15,30 @@ exec --no-startup-id picom
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Iosevka Nerd Font Mono 14
+font pango:Iosevka Nerd Font Mono 13
 
+gaps inner 1
+gaps outer 2
+gaps top 2
+gaps bottom 2
+smart_gaps inverse_outer
+default_border pixel 1
+for_window [class="^.*"] border pixel 1
+
+# Autofocus on hover, also when switching workspaces
+focus_follows_mouse yes
+set $term st-256color
+
+# color scheme
+ client.focused           #9aa5ce #364A82 #c0caf5 #9aa5ce   #9aa5ce
+ client.focused_inactive  #16161d #16161d #c0caf5 #16161d   #16161d
+ client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
+
+bindsym $mod+P exec /home/thhel/.config/rofi/rofi-power.sh
+hide_edge_borders smart
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -35,6 +54,10 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# kill any hanging polybar processes
+exec_always killall polybar
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -187,6 +210,6 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+# bar {
+#         status_command i3status
+# }
