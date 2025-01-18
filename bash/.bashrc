@@ -164,6 +164,8 @@ fi
 for file in $HOME/.config/bash/*.sh; do
   source "$file"
 done
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
 
 toilet "Helto4Real" -F border:metal -f emboss2
 

@@ -58,6 +58,7 @@ exec --no-startup-id nm-applet
 # kill any hanging polybar processes
 exec_always killall polybar
 exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec_always feh --bg-fill /home/thhel/.config/background_images/bg1.jpg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -111,6 +112,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# Move to workspaces
+# bindsym $mod+ctrl+Shift+h move to workspace prev
+# bindsym $mod+ctrl+Shift+l move to workspace next 
+
 # split in horizontal orientation
 bindsym $mod+s split h
 
@@ -163,16 +168,28 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+ctrl+1 move container to workspace number $ws1
+bindsym $mod+Shift+ctrl+2 move container to workspace number $ws2
+bindsym $mod+Shift+ctrl+3 move container to workspace number $ws3
+bindsym $mod+Shift+ctrl+4 move container to workspace number $ws4
+bindsym $mod+Shift+ctrl+5 move container to workspace number $ws5
+bindsym $mod+Shift+ctrl+6 move container to workspace number $ws6
+bindsym $mod+Shift+ctrl+7 move container to workspace number $ws7
+bindsym $mod+Shift+ctrl+8 move container to workspace number $ws8
+bindsym $mod+Shift+ctrl+9 move container to workspace number $ws9
+bindsym $mod+Shift+ctrl+0 move container to workspace number $ws10
+
+
+bindsym $mod+Shift+1 move container to workspace number $ws1;workspace $ws1;focus
+bindsym $mod+Shift+2 move container to workspace number $ws2;workspace $ws2;focus
+bindsym $mod+Shift+3 move container to workspace number $ws3;workspace $ws3;focus
+bindsym $mod+Shift+4 move container to workspace number $ws4;workspace $ws4;focus
+bindsym $mod+Shift+5 move container to workspace number $ws5;workspace $ws5;focus
+bindsym $mod+Shift+6 move container to workspace number $ws6;workspace $ws6;focus
+bindsym $mod+Shift+7 move container to workspace number $ws7;workspace $ws7;focus
+bindsym $mod+Shift+8 move container to workspace number $ws8;workspace $ws8;focus
+bindsym $mod+Shift+9 move container to workspace number $ws9;workspace $ws9;focus
+bindsym $mod+Shift+0 move container to workspace number $ws10;workspace $ws0;focus
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

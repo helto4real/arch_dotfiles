@@ -2,7 +2,7 @@
 
 Shutdown_command="systemctl poweroff"
 Reboot_command="systemctl reboot"
-Logout_command="swaymsg exit"
+Logout_command="i3-msg exit"
 Hibernate_command="systemctl hibernate"
 Suspend_command="systemctl suspend"
 Back_command=""

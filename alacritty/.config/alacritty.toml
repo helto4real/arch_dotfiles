@@ -24,3 +24,6 @@ style = "Italic"
 family = "Iosevka Nerd Font Mono"
 style = "Regular"
 
+[window]
+opacity = 0.75
+
