@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias bt='bpytop'
-alias tm='tmux'
+alias tm='tmux new-session -A -s main'
 alias lzg='lazygit'
 
 # ---- Eza (better ls) -----
