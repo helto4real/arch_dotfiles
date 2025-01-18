@@ -35,6 +35,8 @@ set $term st-256color
  client.unfocused         #16161d #16161d #c0caf5 #16161d   #16161d
 
 bindsym $mod+P exec /home/thhel/.config/rofi/rofi-power.sh
+bindsym $mod+Shift+P exec flameshot gui
+bindsym $mod+Shift+ctrl+P exec flameshot screen
 hide_edge_borders smart
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).

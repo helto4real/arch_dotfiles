@@ -10,7 +10,7 @@ startup_command = "~/.config/sesh/scripts/dev.sh"
 
 [[session]]
 name = "Dotfiles 🖥️"
-path = "~/git/dotfiles"
+path = "~/.dotfiles"
 
 [[session]]
 name = "Home Assistant 🏠"
@@ -18,4 +18,4 @@ path = "/mnt/homeassistant"
 
 [[session]]
 name = "Notes 🗒️"
-path = "/mnt/home/Obsidian"
+path = "/mnt/users/helto/Obsidian/Personal/Tomas stuff"
