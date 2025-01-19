@@ -68,6 +68,8 @@ yay -Sy --noconfirm discord caprine obsidian 1password
 # Import gpg public key to make signing with yubikey possible
 # gpg --armor --import /mnt/win-d/key.pub
 
-
+# Fix time to use local time so we have the correct time in windows
+sudo timedatectl set-timezone Europe/Stockholm
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 
