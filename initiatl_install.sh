@@ -1,7 +1,3 @@
-# Arch installation script selection
-# Boot loader: grub
-# Sound device: pipewire
-# 
 # Post install steps
 # Upgrade all packages
 sudo packman -Syu
@@ -10,7 +6,7 @@ sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
 
 # Desktop environment
 # This is the gnome/i3 combination
-sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh
+sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh flameshot
 
 # First install yay, google it
 # Update system with
@@ -58,4 +54,20 @@ yay -Sy --noconfirm oh-my-bash-git
 # Apps, discord, facebook messenger (caprine)
 yay -Sy --noconfirm discord caprine obsidian 1password
 
-yay -S  # sound
+# set ip address
+# nmcli con mod "Wired connection 1" ipv4.addresses "[ip]/24"
+# nmcli con mod "Wired connection 1" ipv4.gateway "[ip]"
+# nmcli con mod "Wired connection 1" ipv4.dns "[ip]"
+# nmcli con mod "Wired connection 1" ipv4.method "manual"
+# nmcli con up "Wired connection 1"
+
+# Decrypt and add fstab file from this repo
+# Decrypt and add the pasword files in ~/
+# run sudo mount -a to mount the drives
+
+# Import gpg public key to make signing with yubikey possible
+# gpg --armor --import /mnt/win-d/key.pub
+
+
+
+
