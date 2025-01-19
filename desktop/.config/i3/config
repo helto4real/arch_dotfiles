@@ -131,7 +131,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+t layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
+bindsym $mod+b exec --no-startup-id exec firefox
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
@@ -157,6 +157,15 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+##==================================================##
+#                         *** Workspace specific settings ***                     #
+##=================================================##
+# Assign Workspaces:
+assign [class="firefox"] $ws2
+assign [class="discord"] $ws3
+assign [class="Caprine"] $ws3
+
+# assign [class=""] $ws1
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -232,3 +241,9 @@ bindsym $mod+r mode "resize"
 # bar {
 #         status_command i3status
 # }
+
+# Start these default applications on startup
+exec firefox
+exec alacritty
+exec discord
+exec facebookmsg
