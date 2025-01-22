@@ -72,4 +72,5 @@ yay -Sy --noconfirm discord caprine obsidian 1password
 sudo timedatectl set-timezone Europe/Stockholm
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
+# Important, install oh-my-bash before stow the bash scripts
 
