@@ -8,6 +8,9 @@ sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
 # This is the gnome/i3 combination
 sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh flameshot
 
+# Hyprland only
+yay -S waybar
+
 # First install yay, google it
 # Update system with
 
@@ -33,7 +36,7 @@ yay -S nvidia-470xx-dkms nvidia-utils lib32-nvidia-utils
 # Fonts
 yay -Sy --noconfirm ttf-iosevka-nerd ttf-meslo-nerd ttf-noto-nerd noto-fonts-emoji noto-fonts-cjk 
 # Essential general packages for the os and utilities
-yay -Sy --noconfirm jq stow fzf ripgrep fd eza zoxide xclip firefox alacritty ghostty pavucontrol toilet imagemagick ffmpeg
+yay -Sy --noconfirm jq stow fzf ripgrep fd eza zoxide xclip firefox alacritty ghostty pavucontrol toilet imagemagick ffmpeg wl-clipboard luarocks lua51
 # Essential programming packages
 yay -Sy --noconfirm neovim tmux rustup nodejs npm bat sesh docker go python python-pip python-pynvim python-pipenv ansible github-cli bpytop lazygit
 rustup default stable
@@ -41,7 +44,7 @@ yay -Sy --noconfirm dotnet-sdk-9.0 dotnet-runtime-8.0
 
 yay -Sy --noconfirm yubikey-personalization-gui pcsc-tools libu2f-host yubikey-manager
 
-yay -Sy also-scarlet-gui
+yay -Sy also-scarlet-gui, pavucontrol 
 
 # Clone dotfiles
 
@@ -73,4 +76,4 @@ sudo timedatectl set-timezone Europe/Stockholm
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Important, install oh-my-bash before stow the bash scripts
-
+# Install theme byg copy `./hyprland/.config/rofi/tokyonight*` to /usr/share/rofi/themes
