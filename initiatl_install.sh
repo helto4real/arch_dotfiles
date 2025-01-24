@@ -10,7 +10,7 @@ sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
 sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh flameshot
 
 # Hyprland only
-yay -S waybar dunst libnotify
+yay -S waybar dunst libnotify yay -S xdg-desktop-portal-hyprland hyprland-qtutils hyprpaper
 
 # First install yay, google it
 # Update system with
