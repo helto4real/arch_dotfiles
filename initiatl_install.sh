@@ -1,6 +1,7 @@
 # Post install steps
 # Upgrade all packages
 sudo packman -Syu
+
 # Install some basic packages
 sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
 
@@ -9,7 +10,7 @@ sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
 sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh flameshot
 
 # Hyprland only
-yay -S waybar
+yay -S waybar dunst libnotify
 
 # First install yay, google it
 # Update system with
