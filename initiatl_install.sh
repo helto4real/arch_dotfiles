@@ -10,7 +10,7 @@ sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
 sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh flameshot
 
 # Hyprland only
-yay -S waybar dunst libnotify yay -S xdg-desktop-portal-hyprland hyprland-qtutils hyprpaper
+yay -S waybar dunst libnotify yay -S xdg-desktop-portal-hyprland hyprland-qtutils hyprpaper grim slurp
 
 # First install yay, google it
 # Update system with
@@ -46,6 +46,7 @@ yay -Sy --noconfirm dotnet-sdk-9.0 dotnet-runtime-8.0
 # Add Yubikey support, rermember to stow config
 yay -Sy --noconfirm yubikey-personalization-gui pcsc-tools libu2f-host yubikey-manager
 
+# Use pavucontrol to set default audio device
 yay -Sy also-scarlet-gui, pavucontrol 
 
 # Clone dotfiles
