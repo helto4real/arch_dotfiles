@@ -1,12 +1,8 @@
 return
 {
     'stevearc/oil.nvim',
-    opts = {
-        buf_options = {
-            buflisted = false,
-            bifhidden = "hide",
-        },
-    },
+    -- opts = {
+    -- },
     -- Optional dependencies
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
@@ -41,6 +37,13 @@ return
             },
             -- Set to false to disable all of the above keymaps
             use_default_keymaps = false,
+            -- buf_options = {
+            --     buflisted = false,
+            --     bifhidden = "hide",
+            -- },
+            view_options = {
+                show_hidden = true,
+            },
         })
     end,
 }

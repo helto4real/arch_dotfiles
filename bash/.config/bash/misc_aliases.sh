@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-alias bt='bpytop'
+alias top='bpytop'
 alias tm='tmux new-session -A -s main'
 alias lzg='lazygit'
 
