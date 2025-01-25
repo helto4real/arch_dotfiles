@@ -3,7 +3,7 @@
 sudo packman -Syu
 
 # Install some basic packages
-sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
+sudp pacman -Sy intel-ucode wget ntfs-3g fastfetch lsusb usbutils
 # Remebmer to run grub-mkconfig -o /boot/grub/grub.cfg if that is not ran automatically to make sure the intel-ucode is loaded
 
 # Desktop environment
