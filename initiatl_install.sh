@@ -4,13 +4,14 @@ sudo packman -Syu
 
 # Install some basic packages
 sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
+# Remebmer to run grub-mkconfig -o /boot/grub/grub.cfg if that is not ran automatically to make sure the intel-ucode is loaded
 
 # Desktop environment
 # This is the gnome/i3 combination only!
 sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh flameshot
 
 # Hyprland only
-yay -S waybar dunst libnotify yay -S xdg-desktop-portal-hyprland hyprland-qtutils hyprpaper grim slurp
+yay -S waybar dunst libnotify yay -S xdg-desktop-portal-hyprland hyprland-qtutils hyprpaper grim slurp thunar thunar-volman thunar-plugins thunar-archive-plugin gvfs ark
 
 # First install yay, google it
 # Update system with
