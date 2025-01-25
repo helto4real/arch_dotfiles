@@ -35,24 +35,24 @@ window#waybar {
 }
 #workspaces button {
   padding: 0px 8px;
-  color: #fff;
+  color: rgba(255, 158, 100, 0.8);
 }
 
 #workspaces button.focused {
-  color: #24283b;
-  background-color: #7aa2f7;
+  color: #ff9e64;
+  background-color: #3b4261;
   border-radius: 5px;
 }
 
-#workspaces button:hover {
-  background-color: #7dcfff;
-  color: #24283b;
+#workspaces button.hover {
+  background-color: #3b4261;
+  color: rgba(59, 66, 97, 0.5);
   border-radius: 5px;
 }
 
-#workspaces button:active {
-  background-color: #7aa2f7;
-  color: #24283b;
+#workspaces button.active {
+  background-color: #3b4261;
+  color: #ff9e64;
   border-radius: 5px;
 }
 

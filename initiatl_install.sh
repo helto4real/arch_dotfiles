@@ -6,7 +6,7 @@ sudo packman -Syu
 sudp pacman -Sy intel-ucode wget ntfs-3g neofetch lsusb usbutils
 
 # Desktop environment
-# This is the gnome/i3 combination
+# This is the gnome/i3 combination only!
 sudo pacman -Sy --noconfirm xorg xinit i3 picom gnome dmenu rofi polybar gnome-tweaks feh flameshot
 
 # Hyprland only
@@ -43,6 +43,7 @@ yay -Sy --noconfirm neovim tmux rustup nodejs npm bat sesh docker go python pyth
 rustup default stable
 yay -Sy --noconfirm dotnet-sdk-9.0 dotnet-runtime-8.0
 
+# Add Yubikey support, rermember to stow config
 yay -Sy --noconfirm yubikey-personalization-gui pcsc-tools libu2f-host yubikey-manager
 
 yay -Sy also-scarlet-gui, pavucontrol 
