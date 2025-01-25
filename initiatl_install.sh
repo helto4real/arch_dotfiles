@@ -78,3 +78,11 @@ sudo timedatectl set-local-rtc 1 --adjust-system-clock
 
 # Important, install oh-my-bash before stow the bash scripts
 # Install theme byg copy `./hyprland/.config/rofi/tokyonight*` to /usr/share/rofi/themes
+
+# For some apps you need to force them to use wayland, like electron apps
+mkdir -p ~/.local/share/applications
+# Fix discord to use wayland
+cp /usr/share/applications/discord.desktop ~/.local/share/applications/
+# nvim intom the discord.desktop file and change the following line
+# Exec=/usr/bin/discord --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland
+
