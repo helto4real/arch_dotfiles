@@ -38,7 +38,7 @@ packman_install_packages() {
 
     log_message "Install packages for" "$description"
     sleep 1 # adds a sleep to be able to see in the log
-    # sudo pacman -S --needed --noconfirm "${packages[@]}"
+    sudo pacman -S --needed --noconfirm "${packages[@]}"
 }
 
 install_yay() {
