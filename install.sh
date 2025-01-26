@@ -172,8 +172,8 @@ _install_fonts() {
         "ttf-iosevka-nerd"
         "ttf-meslo-nerd"
         "ttf-noto-nerd"
-        "ttf-noto-emoji"
-        "ttf-noto-cjk"
+        "noto-fonts-emoji"
+        "noto-fonts-cjk"
     );
     _installYayPackages "${packages[@]}";
 }
