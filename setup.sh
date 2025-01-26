@@ -34,5 +34,5 @@ log_message "INfO" "Cloning dotfiles repository"
 git clone https://github.com/helto4real/arch_dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles
-
+clear
 source ./install.sh
