@@ -186,19 +186,20 @@ _install_fonts() {
 # }
 
 _install_bash_config() {
-    _log_message "INFO" "Stowing bash"
-    rm ~/.bashrc
-    stow bash
 
     _log_message "INFO" "Installing oh-my-bash"
     rm -r ~/.oh-my-bash
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+    bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended
     stow oh-my-bash
     _installYayPackages oh-my-bash-git
     _log_message "INFO" "Installing oh-my-bash theme"
     mkdir -p $HOME/.oh-my-bash/themes/axin
     # copy the theme to the themes directory
     cp -f ~/.dotfiles/files/oh-my-bash/themes/axin.theme.sh $HOME/.oh-my-bash/themes/axin/axin.theme.sh
+    
+    _log_message "INFO" "Stowing bash"
+    rm ~/.bashrc
+    stow bash
 }
 
 _install_essensial_utilities() {
