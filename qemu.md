@@ -6,3 +6,11 @@
 3. Make it writable `sudo chmod +w ~/qemu/OVMF_CODE.4m.fd`
 4. Install archlinux with `qemu-system-x86_64 -cdrom ~/Downloads/archlinux-2025.01.01-x86_64.iso -boot order=d -m 4096 -accel kvm -drive if=pflash,format=raw,file=/home/thhel/qemu/OVMF_CODE.4m.fd -drive file=~/qemu/arctest.cov,format=qcow2`
 5. Run the image without the cdrom option `qemu-system-x86_64 -boot order=d -m 4096 -accel kvm -drive if=pflash,format=raw,file=/home/thhel/qemu/OVMF_CODE.4m.fd -drive file=~/qemu/arctest.cov,format=qcow2`
+
+
+Use this command to run the vm with gpu.
+
+```bash
+qemu-system-x86_64 -m 4096 -accel kvm -drive if=pflash,format=raw,file=/home/thhel/qemu/OVMF_CODE.4m.fd -drive file=~/qemu/arctest.cov,format=qcow2 -snapshot -device virtio-gpu-gl,hostmem=8G,blob=true,venus=true -display gtk,gl=on
+```
+
