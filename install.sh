@@ -203,7 +203,9 @@ _install_bash_config() {
     _log_message "INFO" "Stowing home directory"
     rm ~/.bashrc
     cd config
-    stow home
+    cd home
+    stow . 
+    cd ../
     cd ../
 }
 
@@ -350,5 +352,7 @@ _install_bash_config
 
 _log_message "INFO" "Stowing .config files"
 cd config
-stow dotconfig
+cd dotconfig
+stow .
+cd ../
 cd ../
