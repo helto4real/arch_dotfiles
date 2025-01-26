@@ -46,11 +46,14 @@ sudo chmod +x ./setup.sh
 ### Manual post installation steps
 
 #### set ip address
+
+```bash
 nmcli con mod "Wired connection 1" ipv4.addresses "[ip]/24"
 nmcli con mod "Wired connection 1" ipv4.gateway "[ip]"
 nmcli con mod "Wired connection 1" ipv4.dns "[ip]"
 nmcli con mod "Wired connection 1" ipv4.method "manual"
 nmcli con up "Wired connection 1"
+```
 
 #### Decrypt and add fstab file from this repo
 - Decrypt and add the pasword files in ~/
