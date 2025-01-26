@@ -202,7 +202,9 @@ _install_bash_config() {
     
     _log_message "INFO" "Stowing home directory"
     rm ~/.bashrc
-    stow -d ./config/ home
+    cd config
+    stow home
+    cd ../
 }
 
 _install_essensial_utilities() {
@@ -347,4 +349,6 @@ _install_yubikey
 _install_bash_config
 
 _log_message "INFO" "Stowing .config files"
-stow -d ./config/ dotconfig
+cd config
+stow dotconfig
+cd ../
