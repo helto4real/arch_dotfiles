@@ -197,15 +197,12 @@ _install_bash_config() {
     # copy the theme to the themes directory
     cp -f ~/.dotfiles/files/oh-my-bash/themes/axin.theme.sh $HOME/.oh-my-bash/themes/axin/axin.theme.sh
     
-    _log_message "INFO" "Stowing bash"
+    _log_message "INFO" "Stowing home directory"
     rm ~/.bashrc
-    stow bash
+    stow -d ./config home
 }
 
 _install_essensial_utilities() {
-
-    _log_message "INFO" "Stowing essential utilities"
-    stow ghostty
 
     _log_message "INFO" "Installing essential utilities"
     packages=(
@@ -230,14 +227,6 @@ _install_essensial_utilities() {
 }
 
 _install_dev_tools() {
-
-    _log_message "INFO" "Stowing devtools"
-    stow bat
-    stow ghostty
-    stow nvim
-    stow tmux
-    stow lazygit
-    stow bpytop
 
     _log_message "INFO" "Installing dev tools"
     packages=(
@@ -353,3 +342,6 @@ _install_essensial_utilities
 _install_dev_tools
 _install_yubikey
 _install_bash_config
+
+_log_message "INFO" "Stowing .config files"
+stow -d ./config dotconfig
