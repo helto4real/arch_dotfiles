@@ -263,6 +263,10 @@ _install_dev_tools() {
 
     _log_message "INFO" "Installing rust"
     rustup default stable
+
+    _log_message "INFO" "Installing tmux plugin manager"
+    mkdir -p ~/.tmux/plugins
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 # Add Yubikey support, rermember to stow config
