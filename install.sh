@@ -190,7 +190,7 @@ _install_bash_config() {
     _log_message "INFO" "Installing oh-my-bash"
     rm -r ~/.oh-my-bash
     bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)" --unattended
-    stow oh-my-bash
+    # stow oh-my-bash
     _installYayPackages oh-my-bash-git
     _log_message "INFO" "Installing oh-my-bash theme"
     mkdir -p $HOME/.oh-my-bash/themes/axin
