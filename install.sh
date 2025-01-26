@@ -259,8 +259,8 @@ _install_dev_tools() {
         "github-cli"
         "bpytop"
         "lazygit"
-        "dotnet-sdk-9.0"
-        "dotnet-runtime-8.0"
+        # "dotnet-sdk-9.0"
+        # "dotnet-runtime-8.0"
     );
     
     _installYayPackages "${packages[@]}";
