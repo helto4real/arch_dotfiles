@@ -234,6 +234,10 @@ _install_dev_tools() {
     _log_message "INFO" "Stowing devtools"
     stow bat
     stow ghostty
+    stow nvim
+    stow tmux
+    stow lazygit
+    stow bpytop
 
     _log_message "INFO" "Installing dev tools"
     packages=(
@@ -344,7 +348,7 @@ _installYay
 _install_hyprland
 _install_desktop_utilities
 _install_fonts
-_install_bash_config
 _install_essensial_utilities
 _install_dev_tools
 _install_yubikey
+_install_bash_config
