@@ -1,5 +1,22 @@
 # My arch linxu development environment
 
+                          $$\   $$\ $$$$$$$$\ $$\   $$$$$$$$\  $$$$$$\                          
+                          $$ |  $$ |$$  _____|$$ |  \__$$  __|$$  __$$\                         
+                          $$ |  $$ |$$ |      $$ |     $$ |   $$ /  $$ |                        
+                          $$$$$$$$ |$$$$$\    $$ |     $$ |   $$ |  $$ |                        
+                          $$  __$$ |$$  __|   $$ |     $$ |   $$ |  $$ |                        
+                          $$ |  $$ |$$ |      $$ |     $$ |   $$ |  $$ |                        
+                          $$ |  $$ |$$$$$$$$\ $$$$$$$$\$$ |    $$$$$$  |                        
+                          \__|  \__|\________|\________\__|    \______/                         
+ $$$$$$\                      $$\             $$\                      $$\              $$\ $$\ 
+$$  __$$\                     $$ |            \__|                     $$ |             $$ |$$ |
+$$ /  $$ | $$$$$$\   $$$$$$$\ $$$$$$$\        $$\ $$$$$$$\   $$$$$$$\$$$$$$\   $$$$$$\  $$ |$$ |
+$$$$$$$$ |$$  __$$\ $$  _____|$$  __$$\       $$ |$$  __$$\ $$  _____\_$$  _|  \____$$\ $$ |$$ |
+$$  __$$ |$$ |  \__|$$ /      $$ |  $$ |      $$ |$$ |  $$ |\$$$$$$\   $$ |    $$$$$$$ |$$ |$$ |
+$$ |  $$ |$$ |      $$ |      $$ |  $$ |      $$ |$$ |  $$ | \____$$\  $$ |$$\$$  __$$ |$$ |$$ |
+$$ |  $$ |$$ |      \$$$$$$$\ $$ |  $$ |      $$ |$$ |  $$ |$$$$$$$  | \$$$$  \$$$$$$$ |$$ |$$ |
+\__|  \__|\__|       \_______|\__|  \__|      \__|\__|  \__|\_______/   \____/ \_______|\__|\__|
+
 This is my arch linux development and dotfile repository
 
 ## Install
@@ -7,15 +24,19 @@ This is my arch linux development and dotfile repository
 ### Installation script selections
 
 - Boot loader: grub
+- Profile: Minial install
 - Sound device: pipewire
 - Network: Network manager
 - Language: English with Swedish keyboard
+- Extra packages: git, vim, wget
 
 ### Run the install script
 
 ```bash
 
-curl  https://raw.githubusercontent.com/helto4real/arch_dotfiles/refs/heads/main/initiatl_install.sh | bash
+wget  https://raw.githubusercontent.com/helto4real/arch_dotfiles/refs/heads/main/setup.sh 
+sudo chmod +x ./setup.sh
+./setup.sh
 
 ```
 
