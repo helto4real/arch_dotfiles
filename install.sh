@@ -199,7 +199,7 @@ _install_bash_config() {
     
     _log_message "INFO" "Stowing home directory"
     rm ~/.bashrc
-    stow -d ./config home
+    stow -d ./config/ home
 }
 
 _install_essensial_utilities() {
