@@ -107,9 +107,10 @@ _installYay() {
 
     SCRIPT=$(realpath "$0")
     temp_path=$(dirname "$SCRIPT")
-    git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
-    cd ~/Downloads/yay
-    makepkg -si
+    sudo pacman -S --needed  git base-devel && git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
+    # git clone https://aur.archlinux.org/yay.git ~/Downloads/yay
+    # cd ~/Downloads/yay
+    # makepkg -si
     cd $temp_path
 
     # remove comment multilib in the file /etc/pacman.conf if exists
