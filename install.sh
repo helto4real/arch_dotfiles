@@ -128,7 +128,7 @@ _install_hyprland() {
     fi
 
     _log_message "INFO" "Stowing the hyprland dotfiles"
-    stow ./hyprland
+    stow hyprland
 
     _log_message "INFO" "Installing Hyprland packages"
     packages=(
