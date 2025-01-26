@@ -191,10 +191,9 @@ _install_bash_config() {
     stow bash
 
     _log_message "INFO" "Installing oh-my-bash"
-
-    stow oh-my-bash
+    rm -r ~/.oh-my-bash
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-
+    stow oh-my-bash
     _installYayPackages oh-my-bash-git
     _log_message "INFO" "Installing oh-my-bash theme"
     mkdir -p $HOME/.oh-my-bash/themes/axin
@@ -272,7 +271,7 @@ _install_yubikey() {
     packages=(
         "yuibikey-personalization-gui"
         "pcsc-tools"
-        "libu2f-host"
+        # "libu2f-host"
         "yubikey-manager"
     );
     
@@ -345,5 +344,6 @@ _install_hyprland
 _install_desktop_utilities
 _install_fonts
 _install_bash_config
+_install_essensial_utilities
 _install_dev_tools
 _install_yubikey
