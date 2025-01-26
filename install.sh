@@ -271,6 +271,9 @@ _install_yubikey() {
     _log_message "INFO" "Installing Yubikey support"
 
     packages=(
+        "gnupg" 
+        "pcsclite"
+        "ccid"
         "yuibikey-personalization-gui"
         "pcsc-tools"
         # "libu2f-host"
