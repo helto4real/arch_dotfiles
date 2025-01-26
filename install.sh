@@ -346,4 +346,4 @@ _install_yubikey
 _install_bash_config
 
 _log_message "INFO" "Stowing .config files"
-stow -d ./config dotconfig
+stow -d ./config/ dotconfig
