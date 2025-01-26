@@ -53,4 +53,6 @@ cp /usr/share/applications/discord.desktop ~/.local/share/applications/
 nvim intom the discord.desktop file and change the following line
 `Exec=/usr/bin/discord --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland`
 
+### Important, Nvidia drivers
+This script installs nvidia drivers for moderna cards, you need to do post installation steps before first reboot, see `nvidia.md` for details!!
 
