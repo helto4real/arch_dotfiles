@@ -229,9 +229,6 @@ _install_essensial_utilities() {
     _installYayPackages "${packages[@]}";
 }
 
-yay -Sy --noconfirm neovim tmux rustup nodejs npm bat sesh docker go python python-pip python-pynvim python-pipenv ansible github-cli bpytop lazygit
-rustup default stable
-yay -Sy --noconfirm dotnet-sdk-9.0 dotnet-runtime-8.0
 _install_dev_tools() {
 
     _log_message "INFO" "Stowing devtools"
@@ -265,6 +262,21 @@ _install_dev_tools() {
 
     _log_message "INFO" "Installing rust"
     rustup default stable
+}
+
+# Add Yubikey support, rermember to stow config
+_install_yubikey() {
+
+    _log_message "INFO" "Installing Yubikey support"
+
+    packages=(
+        "yuibikey-personalization-gui"
+        "pcsc-tools"
+        "libu2f-host"
+        "yubikey-manager"
+    );
+    
+    _installYayPackages "${packages[@]}";
 }
 
 # Some colors
@@ -334,4 +346,4 @@ _install_desktop_utilities
 _install_fonts
 _install_bash_config
 _install_dev_tools
-
+_install_yubikey
