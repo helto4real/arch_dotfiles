@@ -137,7 +137,7 @@ _install_hyprland() {
         "slurp"
         "xdg-desktop-portal-hyprland" 
         "libnotify" 
-		"polkit-kde-agent",
+		# "polkit-kde-agent",
         "dunst"
         "waybar"
         "hyprland-qtutils"
