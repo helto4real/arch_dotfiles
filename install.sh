@@ -91,8 +91,8 @@ _installYayPackages() {
     if [[ "${toInstall[@]}" == "" ]]; then
         return;
     fi;
-    _log_message "INFO" "Installing the packages with yay (${toInstall[@]})";
-    yay --needed --noconfirm -S "${toInstall[@]}";
+    _log_message "INFO" "Installing the packages with yay ${toInstall[@]}";
+    yay --noconfirm -Sy "${toInstall[@]}";
 }
 
 # install yay if needed
@@ -247,6 +247,7 @@ _install_dev_tools() {
         "nodejs"
         "npm"
         "bat"
+        "yarn"
         "sesh"
         "docker"
         "go"
