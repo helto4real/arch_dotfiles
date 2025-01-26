@@ -127,9 +127,6 @@ _install_hyprland() {
         return;
     fi
 
-    _log_message "INFO" "Stowing the hyprland dotfiles"
-    stow hyprland
-
     _log_message "INFO" "Installing Hyprland packages"
     packages=(
         "hyprland"
@@ -142,7 +139,6 @@ _install_hyprland() {
         "libnotify" 
 		"polkit-kde-agent",
         "dunst"
-        "sddm"
         "waybar"
         "hyprland-qtutils"
         "qt5-wayland" 
@@ -150,8 +146,6 @@ _install_hyprland() {
     );
     _installPackages "${packages[@]}";
 
-    _log_message "INFO" "Enabling the display manager service"
-    sudo systemctl enable sddm
 }
 
 _install_desktop_utilities() {
@@ -160,11 +154,14 @@ _install_desktop_utilities() {
     packages=(
         "thunar"
         "thunar-volman"
+        "sddm"
         "thunar-archive-plugin"
         "gvfs"
         "ark"
     );
     _installYayPackages "${packages[@]}";
+    _log_message "INFO" "Enabling the display manager service"
+    sudo systemctl enable sddm.service
 }
 
 _install_fonts() {
