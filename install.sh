@@ -178,15 +178,17 @@ _install_fonts() {
     _installYayPackages "${packages[@]}";
 }
 
-# _install_nvidia_drivers() {
-#     _log_message "INFO" "Installing nvidia drivers"
-#     packages=(
-#         "nvidia-470xx-dkms"
-#         "nvidia-utils"
-#         "lib32-nvidia-utils"
-#     );
-#     _installYayPackages "${packages[@]}";
-# }
+_install_nvidia() {
+    _log_message "INFO" "Installing nvidia drivers"
+    packages=(
+        "nvidia-dkms"
+        "nvidia-utils"
+        "lib32-nvidia-utils"
+        "libva-nvidia-drive"
+        # "egl-wayland"
+    );
+    _installYayPackages "${packages[@]}";
+}
 
 _install_bash_config() {
 
@@ -287,6 +289,21 @@ _install_yubikey() {
     _installYayPackages "${packages[@]}";
 }
 
+_install_apps() {
+
+    _log_message "INFO" "Installing applications"
+
+    packages=(
+        "firefox" 
+        "discord"
+        "caprine"
+        "obsidian"
+        "1password"
+    );
+    
+    _installYayPackages "${packages[@]}";
+}
+
 # Some colors
 GREEN='\033[0;32m'
 NONE='\033[0m'
@@ -350,12 +367,14 @@ _installPackages "${essensial_packages[@]}";
 
 _installYay
 _install_hyprland
+_install_nvidia
 _install_desktop_utilities
 _install_fonts
 _install_essensial_utilities
 _install_dev_tools
 _install_yubikey
 _install_bash_config
+_install_apps
 
 _log_message "INFO" "Stowing .config files"
 cd config
@@ -363,3 +382,12 @@ cd dotconfig
 stow .
 cd ../
 cd ../
+
+_log_message "Install rofi theme"
+sudo mkdir -p /usr/share/rofi/themes
+sudo cp ~/.config/rofi/tokyonight.rasi /usr/share/rofi/themes
+sudo cp ~/.config/rofi/tokyonight_big1.rasi /usr/share/rofi/themes
+sudo cp ~/.config/rofi/tokyonight_big2.rasi /usr/share/rofi/themes
+
+_log_message "CRITICAL" "You have installed Nvidia drivers, do post setup before first reboot!!!, see nvidia.md"
+

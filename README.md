@@ -18,3 +18,39 @@ This is my arch linux development and dotfile repository
 curl  https://raw.githubusercontent.com/helto4real/arch_dotfiles/refs/heads/main/initiatl_install.sh | bash
 
 ```
+
+### Manual post installation steps
+
+#### set ip address
+nmcli con mod "Wired connection 1" ipv4.addresses "[ip]/24"
+nmcli con mod "Wired connection 1" ipv4.gateway "[ip]"
+nmcli con mod "Wired connection 1" ipv4.dns "[ip]"
+nmcli con mod "Wired connection 1" ipv4.method "manual"
+nmcli con up "Wired connection 1"
+
+#### Decrypt and add fstab file from this repo
+- Decrypt and add the pasword files in ~/
+- Run sudo mount -a to mount the drives
+
+#### Import gpg public key to make signing with yubikey possible
+```bash
+gpg --armor --import /mnt/win-d/key.pub
+```
+
+#### Fix time to use local time so we have the correct time in windows
+```bash
+sudo timedatectl set-timezone Europe/Stockholm
+sudo timedatectl set-local-rtc 1 --adjust-system-clock
+```
+
+#### For some apps you need to force them to use wayland, like electron apps
+```bash
+mkdir -p ~/.local/share/applications
+# Fix discord to use wayland
+cp /usr/share/applications/discord.desktop ~/.local/share/applications/
+```
+
+nvim intom the discord.desktop file and change the following line
+`Exec=/usr/bin/discord --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform=wayland`
+
+
