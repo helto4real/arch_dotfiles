@@ -140,13 +140,18 @@ _install_hyprland() {
         "slurp"
         "xdg-desktop-portal-hyprland" 
         "libnotify" 
+		"polkit-kde-agent",
         "dunst"
+        "sddm"
         "waybar"
         "hyprland-qtutils"
         "qt5-wayland" 
         "qt6-wayland"
     );
     _installPackages "${packages[@]}";
+
+    _log_message "INFO" "Enabling the display manager service"
+    sudo systemctl enable sddm
 }
 
 _install_desktop_utilities() {
