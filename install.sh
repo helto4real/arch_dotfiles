@@ -189,6 +189,82 @@ _install_bash_config() {
     _log_message "INFO" "Stowing bash"
     rm ~/.bashrc
     stow bash
+
+    _log_message "INFO" "Installing oh-my-bash"
+
+    stow oh-my-bash
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+    _installYayPackages oh-my-bash-git
+    _log_message "INFO" "Installing oh-my-bash theme"
+    mkdir -p $HOME/.oh-my-bash/themes/axin
+    # copy the theme to the themes directory
+    cp -f ~/.dotfiles/files/oh-my-bash/themes/axin.theme.sh $HOME/.oh-my-bash/themes/axin/axin.theme.sh
+}
+
+_install_essensial_utilities() {
+
+    _log_message "INFO" "Stowing essential utilities"
+    stow ghostty
+
+    _log_message "INFO" "Installing essential utilities"
+    packages=(
+        "jq"
+        "fzf"
+        "ripgrep"
+        "fd"
+        "eza"
+        "zoxide"
+        "xclip"
+        "ghostty"
+        "pavucontrol"
+        "toilet"
+        "imagemagick"
+        "ffmpeg"
+        "wl-clipboard"
+        "luarocks"
+        "lua51"
+    );
+    
+    _installYayPackages "${packages[@]}";
+}
+
+yay -Sy --noconfirm neovim tmux rustup nodejs npm bat sesh docker go python python-pip python-pynvim python-pipenv ansible github-cli bpytop lazygit
+rustup default stable
+yay -Sy --noconfirm dotnet-sdk-9.0 dotnet-runtime-8.0
+_install_dev_tools() {
+
+    _log_message "INFO" "Stowing devtools"
+    stow bat
+    stow ghostty
+
+    _log_message "INFO" "Installing dev tools"
+    packages=(
+        "neovim"
+        "tmux"
+        "rustup"
+        "nodejs"
+        "npm"
+        "bat"
+        "sesh"
+        "docker"
+        "go"
+        "python"
+        "python-pip"
+        "python-pynvim"
+        "python-pipenv"
+        "ansible"
+        "github-cli"
+        "bpytop"
+        "lazygit"
+        "dotnet-sdk-9.0"
+        "dotnet-runtime-8.0"
+    );
+    
+    _installYayPackages "${packages[@]}";
+
+    _log_message "INFO" "Installing rust"
+    rustup default stable
 }
 
 # Some colors
@@ -257,3 +333,5 @@ _install_hyprland
 _install_desktop_utilities
 _install_fonts
 _install_bash_config
+_install_dev_tools
+
