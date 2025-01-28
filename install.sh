@@ -141,6 +141,8 @@ _install_hyprland() {
 		# "polkit-kde-agent",
         "dunst"
         "waybar"
+        "tumbler" # thumbnails
+        "nsxiv" # image viewer
         "hyprland-qtutils"
         "qt5-wayland" 
         "qt6-wayland"
