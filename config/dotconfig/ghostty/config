@@ -54,3 +54,4 @@ background-blur-radius = 40
 mouse-hide-while-typing = true
 
 copy-on-select = true
+confirm-close-surface = false

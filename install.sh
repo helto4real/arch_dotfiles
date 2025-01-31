@@ -176,6 +176,7 @@ _install_fonts() {
         "ttf-noto-nerd"
         "noto-fonts-emoji"
         "noto-fonts-cjk"
+        "ttf-ms-fonts"
     );
     _installYayPackages "${packages[@]}";
 }
