@@ -2,7 +2,7 @@ configuration{
     modi: ["drun", "window", "run"];
     icon-theme: "Papirus-Dark";
     show-icons: true;
-    terminal: "alacritty";
+    terminal: "ghostty";
     drun-display-format: "{icon} {name}";
     location: 0;
     disable-history: false;
@@ -11,6 +11,8 @@ configuration{
     display-run: " ";
     display-window: " ";
     
+    font: "Iosevka Nerd Font 16";
+
     //adding vim keybindings
     kb-row-up: "Up,Control+k";
     kb-row-left: "Left,Control+h";
@@ -26,4 +28,4 @@ configuration{
     kb-move-char-forward: "Control+f";
     kb-mode-complete: "Control+o";
 }
-@theme "/usr/share/rofi/themes/tokyonight.rasi"
+@theme "/home/thhel/.config/rofi/tokyonight.rasi"

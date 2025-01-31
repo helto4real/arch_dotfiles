@@ -46,6 +46,7 @@ theme = tokyonight_night
 
 font-family = Iosevka Nerd Font Mono
 font-style-italic = Iosevka Nerd Font Mono
+font-size = 15
 # font-synthetic-style = italic
 font-variation-italic = wght=200
 
