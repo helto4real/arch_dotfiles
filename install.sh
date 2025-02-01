@@ -260,6 +260,8 @@ _install_dev_tools() {
         "github-cli"
         "bpytop"
         "lazygit"
+        "kubectl"
+        "k9s"
         # "dotnet-sdk-9.0"
         # "dotnet-runtime-8.0"
     );

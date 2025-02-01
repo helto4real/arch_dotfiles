@@ -77,7 +77,7 @@ function _clear_task {
 
 function _omb_theme_PROMPT_COMMAND() {
     # PS1="$(_clear_task)\[${BOLD}${MAGENTA}\]\u \[$WHITE\]@ \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\[$SCM_THEME_PROMPT_PREFIX\]$(clock_prompt)\[$PURPLE\]\$(scm_prompt_info)$YELLOW\$(k8s_info)$PURPLE\n\$ \[$RESET\]"
-    PS1="$(_clear_task)\[${BOLD}${MAGENTA}\]\u \[$GREEN\]\[$SCM_THEME_PROMPT_PREFIX\]\w\[$PURPLE\]\$(scm_prompt_info)$YELLOW\$(k8s_info)$BLUE\n→  \[$RESET\]"
+    PS1="$(_clear_task)\[${BOLD}${MAGENTA}\]\u \[$GREEN\]\[$SCM_THEME_PROMPT_PREFIX\]\w\[$PURPLE\]\$(scm_prompt_info)$BLUE\n→  \[$RESET\]"
 }
 THEME_CLOCK_COLOR=${THEME_CLOCK_COLOR:-"${_omb_prompt_white}"}
 

@@ -3,4 +3,4 @@
 alias vi='nvim'
 alias vim='nvim'
 alias ni='nvim'
-alias rvim='nisshfs'
+alias rvim='nssh'
