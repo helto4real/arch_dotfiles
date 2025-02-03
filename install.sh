@@ -394,5 +394,8 @@ sudo cp ~/.config/rofi/tokyonight.rasi /usr/share/rofi/themes
 sudo cp ~/.config/rofi/tokyonight_big1.rasi /usr/share/rofi/themes
 sudo cp ~/.config/rofi/tokyonight_big2.rasi /usr/share/rofi/themes
 
+_log_message "INFO" "Rebuild bat cache"
+bat cache --build
+
 _log_message "CRITICAL" "You have installed Nvidia drivers, do post setup before first reboot!!!, see nvidia.md"
 
