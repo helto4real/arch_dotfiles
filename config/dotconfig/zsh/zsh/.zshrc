@@ -114,8 +114,9 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 ### --- PATH exports ---
-path+=('$HOME/.local/bin')
-path+=('$HOME/.dotnet/tools')
+path+=~/.local/bin
+path+=~/.dotnet/tools
+export PATH
 
 # autoload -Uz compinit
 # compinit

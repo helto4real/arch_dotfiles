@@ -247,9 +247,9 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",  -- required
             "sindrets/diffview.nvim", -- optional - Diff integration
-
+            "ibhagwan/fzf-lua",              -- optional
             -- Only one of these is needed, not both.
-            "nvim-telescope/telescope.nvim", -- optional
+            -- "nvim-telescope/telescope.nvim", -- optional
         },
         config = true
     }
