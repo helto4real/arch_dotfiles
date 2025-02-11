@@ -5,7 +5,7 @@ return
         -- use the latest release, via version = '*', if you also use the latest release for blink.cmp
         version = '*',
         -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
-        lazy = true,
+        lazy = false,
         -- make sure to set opts so that lazy.nvim calls blink.compat's setup
         opts = {},
     },
@@ -16,6 +16,7 @@ return
             'rafamadriz/friendly-snippets',
             'giuxtaposition/blink-cmp-copilot',
         },
+        lazy = false,
         -- use a release tag to download pre-built binaries
         version = 'v0.*',
         -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust build = 'cargo build --release', If you use nix, you can build from source using latest nightly rust with: build = 'nix run .#build-plugin',
@@ -40,11 +41,12 @@ return
                     copilot = {
                         name = 'copilot',
                         module = 'blink-cmp-copilot',
-                        score_offset = 100,
+                        score_offset = 1,
                         async = true,
                     },
                 },
             },
+            
             keymap = {
                 -- set to 'none' to disable the 'default' preset
                 preset = 'default',
@@ -61,19 +63,11 @@ return
                 -- Display a preview of the selected item on the current line
                 ghost_text = { enabled = true },
 
+                list = {
+                    selection = { preselect = true, auto_insert = false  },
+                },
+                menu = { auto_show = false },
             },
-            -- keymap = { preset = 'default' },
-            -- keymap = {
-            --     -- set to 'none' to disable the 'default' preset
-            --     preset = 'none',
-            --
-            --     ['<c-k>'] = { 'select_prev', 'fallback' },
-            --     ['<c-j>'] = { 'select_next', 'fallback' },
-            --     ['<c-y>'] = { 'select_and_accept' },
-            --     ['<c-n>'] = { 'show', 'show_documentation', 'hide_documentation' },
-
-
-
 
             -- disable a keymap from the preset
             -- ['<C-e>'] = {},

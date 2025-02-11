@@ -10,7 +10,15 @@ return {
             transparent = false,
             on_colors = function(colors)
                 colors.bg = "#191a25"
-            end
+            end,
+            on_highlights = function (hl, c)
+               hl.CursorLine = {
+                    bg = "#1f202e",
+                }
+               hl.CmpNormal = {
+                    bg = "#292b3d",
+                }
+            end,
         })
         vim.cmd([[colorscheme tokyonight]])
     end,
