@@ -32,12 +32,24 @@ return
                 -- Adjusts spacing to ensure icons are aligned
                 nerd_font_variant = 'mono'
             },
-
-            -- default list of enabled providers defined so that you can extend it
-            -- elsewhere in your config, without redefining it, via `opts_extend`
             sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+                default = { "lsp", "path", "snippets", "buffer", "copilot" },
+                cmdline = {}, -- Disable sources for command-line mode
                 providers = {
+                    lsp = {
+                        min_keyword_length = 0, -- Number of characters to trigger
+                        score_offset = 0,   -- Boost/penalize the score of the items
+                    },
+                    path = {
+                        min_keyword_length = 0,
+                    },
+                    snippets = {
+                        min_keyword_length = 2,
+                    },
+                    buffer = {
+                        min_keyword_length = 5,
+                        max_items = 5,
+                    },
                     copilot = {
                         name = 'copilot',
                         module = 'blink-cmp-copilot',
@@ -46,7 +58,20 @@ return
                     },
                 },
             },
-            
+            -- -- default list of enabled providers defined so that you can extend it
+            -- -- elsewhere in your config, without redefining it, via `opts_extend`
+            -- sources = {
+            --     default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+            --     providers = {
+            --         copilot = {
+            --             name = 'copilot',
+            --             module = 'blink-cmp-copilot',
+            --             score_offset = 1,
+            --             async = true,
+            --         },
+            --     },
+            -- },
+
             keymap = {
                 -- set to 'none' to disable the 'default' preset
                 preset = 'default',
@@ -58,15 +83,28 @@ return
 
             completion = {
                 -- Show documentation when selecting a completion item
-                documentation = { auto_show = true, auto_show_delay_ms = 500 },
+                documentation = {
+                    auto_show = true,
+                    auto_show_delay_ms = 500,
+                    treesitter_highlighting = true,
+                    window = { border = "rounded" },
+                },
 
                 -- Display a preview of the selected item on the current line
                 ghost_text = { enabled = true },
 
                 list = {
-                    selection = { preselect = true, auto_insert = false  },
+                    selection = { preselect = true, auto_insert = false },
+                    max_items = 10,
                 },
-                menu = { auto_show = false },
+                menu = {
+                    border = "rounded",
+                    auto_show = false
+                },
+                trigger = {
+                    show_on_keyword = true,
+                    show_on_trigger_character = true,
+                },
             },
 
             -- disable a keymap from the preset
