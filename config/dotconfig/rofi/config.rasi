@@ -1,5 +1,5 @@
 configuration{
-    modi: ["drun", "window", "run"];
+    modi: ["drun", "window", "run", "ssh", "combi"];
     icon-theme: "Papirus-Dark";
     show-icons: true;
     terminal: "ghostty";
@@ -27,5 +27,5 @@ configuration{
     kb-remove-char-back: "BackSpace";
     kb-move-char-forward: "Control+f";
     kb-mode-complete: "Control+o";
-}
+    combi-modes: [drun, ssh]; }
 @theme "/home/thhel/.config/rofi/tokyonight.rasi"
