@@ -18,4 +18,4 @@ path = "/mnt/homeassistant"
 
 [[session]]
 name = "Notes 🗒️"
-path = "/mnt/home/Obsidian/Personal"
+path = "~/Documents/Obsidian/Personal"

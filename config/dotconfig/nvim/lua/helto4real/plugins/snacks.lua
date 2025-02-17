@@ -14,7 +14,7 @@ return {
         keys = {
             -- Open git log in vertical view
             {
-                "<leader>gl",
+                "<leader>fgl",
                 function()
                     Snacks.picker.git_log({
                         finder = "git_log",
@@ -24,11 +24,11 @@ return {
                         layout = "vertical",
                     })
                 end,
-                desc = "Git Log",
+                desc = "(L)og",
             },
-            { "<leader>fg", function() Snacks.picker.git_files() end,     desc = "Find Git Files" },
-            { "<leader>fr", function() Snacks.picker.grep() end,          desc = "Grep" },
-            { "<leader>fn", function() Snacks.picker.notifications() end, desc = "Grep" },
+        { "<leader>fgf", function() Snacks.picker.git_files() end,     desc = "(F)iles" },
+            { "<leader>fr", function() Snacks.picker.grep() end,          desc = "G(r)ep" },
+            { "<leader>fn", function() Snacks.picker.notifications() end, desc = "(N)otifications" },
             {
                 "<leader>fdd",
                 function() Snacks.picker.diagnostics_buffer() end,
@@ -54,69 +54,69 @@ return {
                 function() Snacks.picker.man() end,
                 desc = "(M)an pages",
             },
-            -- -- Iterate through incomplete tasks in Snacks_picker
-            -- {
-            --     -- -- You can confirm in your teminal lamw26wmal with:
-            --     -- -- rg "^\s*-\s\[ \]" test-markdown.md
-            --     "<leader>fr",
-            --     function()
-            --         Snacks.picker.grep({
-            --             prompt = " ",
-            --             -- pass your desired search as a static pattern
-            --             search = "^\\s*- \\[ \\]",
-            --             -- we enable regex so the pattern is interpreted as a regex
-            --             regex = true,
-            --             -- no “live grep” needed here since we have a fixed pattern
-            --             live = false,
-            --             -- restrict search to the current working directory
-            --             dirs = { vim.fn.getcwd() },
-            --             -- include files ignored by .gitignore
-            --             args = { "--no-ignore" },
-            --             -- Start in normal mode
-            --             on_show = function()
-            --                 vim.cmd.stopinsert()
-            --             end,
-            --             finder = "grep",
-            --             format = "file",
-            --             show_empty = true,
-            --             supports_live = false,
-            --             layout = "ivy",
-            --         })
-            --     end,
-            --     desc = "[P]Search for incomplete tasks",
-            -- },
-            -- -- Iterate throuth completed tasks in Snacks_picker lamw26wmal
-            -- {
-            --     "<leader>tc",
-            --     function()
-            --         Snacks.picker.grep({
-            --             prompt = " ",
-            --             -- pass your desired search as a static pattern
-            --             search = "^\\s*- \\[x\\] `done:",
-            --             -- we enable regex so the pattern is interpreted as a regex
-            --             regex = true,
-            --             -- no “live grep” needed here since we have a fixed pattern
-            --             live = false,
-            --             -- restrict search to the current working directory
-            --             dirs = { vim.fn.getcwd() },
-            --             -- include files ignored by .gitignore
-            --             args = { "--no-ignore" },
-            --             -- Start in normal mode
-            --             on_show = function()
-            --                 vim.cmd.stopinsert()
-            --             end,
-            --             finder = "grep",
-            --             format = "file",
-            --             show_empty = true,
-            --             supports_live = false,
-            --             layout = "ivy",
-            --         })
-            --     end,
-            --     desc = "[P]Search for incomplete tasks",
-            -- },
-            -- -- List git branches with Snacks_picker to quickly switch to a new branch
+            -- Iterate through incomplete tasks in Snacks_picker
             {
-                "<leader>gb",
+                -- -- You can confirm in your teminal lamw26wmal with:
+                -- -- rg "^\s*-\s\[ \]" test-markdown.md
+                "<leader>ftt",
+                function()
+                    Snacks.picker.grep({
+                        prompt = " ",
+                        -- pass your desired search as a static pattern
+                        search = "^\\s*- \\[ \\]",
+                        -- we enable regex so the pattern is interpreted as a regex
+                        regex = true,
+                        -- no “live grep” needed here since we have a fixed pattern
+                        live = false,
+                        -- restrict search to the current working directory
+                        dirs = { vim.fn.getcwd() },
+                        -- include files ignored by .gitignore
+                        args = { "--no-ignore" },
+                        -- Start in normal mode
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
+                        finder = "grep",
+                        format = "file",
+                        show_empty = true,
+                        supports_live = false,
+                        layout = "ivy",
+                    })
+                end,
+                desc = "Incomplete (T)asks",
+            },
+            -- Iterate throuth completed tasks in Snacks_picker lamw26wmal
+            {
+                "<leader>ftd",
+                function()
+                    Snacks.picker.grep({
+                        prompt = " ",
+                        -- pass your desired search as a static pattern
+                        search = "^\\s*- \\[x\\]",
+                        -- we enable regex so the pattern is interpreted as a regex
+                        regex = true,
+                        -- no “live grep” needed here since we have a fixed pattern
+                        live = false,
+                        -- restrict search to the current working directory
+                        dirs = { vim.fn.getcwd() },
+                        -- include files ignored by .gitignore
+                        args = { "--no-ignore" },
+                        -- Start in normal mode
+                        on_show = function()
+                            vim.cmd.stopinsert()
+                        end,
+                        finder = "grep",
+                        format = "file",
+                        show_empty = true,
+                        supports_live = false,
+                        layout = "ivy",
+                    })
+                end,
+                desc = "Complete(d) tasks",
+            },
+            -- List git branches with Snacks_picker to quickly switch to a new branch
+            {
+                "<leader>fgb",
                 function()
                     Snacks.picker.git_branches({
                         layout = "select",

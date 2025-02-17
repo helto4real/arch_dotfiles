@@ -62,6 +62,8 @@ return {
             { '<leader>cg', group = '[G]it',     mode = { 'n', 'x' } },
             { '<leader>cd', group = '[D]otnet',     mode = { 'n', 'x' } },
             { '<leader>g', group = '[G]oto' },
+            { '<leader>ft', group = '[T]asks' },
+            { '<leader>fg', group = '(G)it' },
             { '<leader>f', group = '[F]ind' },
             { '<leader>m', group = '[M]arkdown/[M]ulti cursor' },
             { '<leader>fs', group = '[S]ymols' },

@@ -15,7 +15,7 @@
 # sleep 0.3
 
 # Specify below the directory in which you want to create your daily note
-main_note_dir="/mnt/home/Obsidian/Personal/Tomas/daily_notes"
+main_note_dir="/home/thhel/Documents/Obsidian/Personal/Tomas/daily_notes"
 # Get current date components
 current_year=$(date +"%Y")
 current_month_num=$(date +"%m")
@@ -71,3 +71,6 @@ fi
 
 # Switch to the tmux session with the note name
 tmux switch-client -t "$tmux_session_name"
+
+# Switch hyprland to the workspace with the daily note
+hyprctl dispatch workspace 1
