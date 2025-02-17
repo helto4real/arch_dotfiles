@@ -84,3 +84,19 @@ nvim intom the discord.desktop file and change the following line
 ### Important, Nvidia drivers
 This script installs nvidia drivers for moderna cards, you need to do post installation steps before first reboot, see `nvidia.md` for details!!
 
+
+### Wireguard setup
+
+1. Install wireguard tools
+´´´bash
+yay -S wireguard-tools
+´´´
+2. Download the config from the VPN provider
+3. Start wireguard with
+´´´bash
+wg-quick up /path/to/config
+´´´
+4. Stop it with 
+´´´bash
+wg-quick down
+´´´

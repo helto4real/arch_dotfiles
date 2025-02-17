@@ -70,20 +70,16 @@ return {
                 --     })
                 -- end
                 --
-                nmap('<leader>ce', '<cmd>Trouble diagnostics toggle focus=false filter.buf=0<CR>', '[e]rrors')
-                nmap('<leader>cr', vim.lsp.buf.rename, '[R]ename')
+                nmap('<leader>ce', '<cmd>Trouble diagnostics toggle focus=false filter.buf=0<CR>', '(e)rrors')
+                nmap('<leader>cr', vim.lsp.buf.rename, '(R)ename')
                 nmap('<leader>ca', vim.lsp.buf.code_action, 'Code [A]ction')
-                nmap('<leader>gd', vim.lsp.buf.definition, '[D]efinition')
-                nmap('<leader>gi', vim.lsp.buf.implementation, '[I]mplementation')
-                nmap('<leader>gD', vim.lsp.buf.declaration, '[D]eclaration')
-                nmap('<leader>cD', vim.lsp.buf.type_definition, 'Type [D]efinition')
-                nmap('<leader>fsw', require('fzf-lua').lsp_live_workspace_symbols, '[D]ocument')
-                nmap('<leader>fsd', require('fzf-lua').lsp_document_symbols, '[W]orkspace')
-                nmap('<leader>fc', require('fzf-lua').lsp_code_actions, '[C]ode Actions')
-                nmap('<leader>fI', require('fzf-lua').lsp_incoming_calls, '[I]ncoming calls')
-                nmap('<leader>fi', require('fzf-lua').lsp_finder, 'F[i]der')
-                nmap('<leader>fR', require('fzf-lua').lsp_references, '[R]eferences')
-                nmap('<leader>ft', require('fzf-lua').lsp_typedefs, '[T]ype definitions')
+                nmap('<leader>gi', function() Snacks.picker.lsp_definitions() end, '(D)efintion')
+                nmap('<leader>gi', function() Snacks.picker.lsp_implementations() end, '(I)mplementation')
+                nmap('<leader>gD', function() Snacks.picker.lsp_declarations() end, '(D)eclaration')
+                nmap('<leader>ft', function() Snacks.picker.lsp_type_definitions() end, 'Type (D)efinitions')
+                nmap('<leader>fsw', function() Snacks.picker.lsp_symbols() end, '(D)ocument')
+                nmap('<leader>fsd', function() Snacks.picker.lsp_workspace_symbols() end, '(W)orkspace')
+                nmap('<leader>fR', function() Snacks.picker.lsp_references() end, '(R)eferences')
                 -- See `:help K` for why this keymap
                 nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
                 nmap('<leader>ck', vim.lsp.buf.signature_help, 'Signature Documentation')
@@ -152,8 +148,6 @@ return {
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
-
-        -- require('helto4real.autoload.dap')
 
         -- configure html server
         lspconfig["html"].setup({

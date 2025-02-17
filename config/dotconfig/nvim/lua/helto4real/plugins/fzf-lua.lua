@@ -50,55 +50,55 @@ return {
         })
     end,
     keys = {
-        {
-            "<leader>ff",
-            function() require('fzf-lua').files({}) end,
-            desc = "(F)ind (f)iles",
-        },
-        {
-            "<leader>fr",
-            function() require('fzf-lua').live_grep_native({}) end,
-            desc = "(F)ind with (G)rep",
-        },
-        {
-            "<leader><space>",
-            function() require('fzf-lua').buffers({}) end,
-            desc = "(F)ind open (space)Buffers",
-        },
-        {
-            "<leader>fg",
-            function() require('fzf-lua').git_files({}) end,
-            desc = "(F)ind with (G)it files",
-        },
-        {
-            "<leader>fdd",
-            function() require('fzf-lua').lsp_document_diagnostics({}) end,
-            desc = "(F)ind (D)iagnistics (D)ocument",
-        },
-        {
-            "<leader>fdw",
-            function() require('fzf-lua').lsp_workspace_diagnostics({}) end,
-            desc = "(F)ind (D)iagnistic (W)orkspace",
-        },
-        {
-            "<leader>fq",
-            function() require('fzf-lua').quickfix({}) end,
-            desc = "(F)ind in (Q)uickfix list",
-        },
-        {
-            "<leader>fh",
-            function() require('fzf-lua').helptags({}) end,
-            desc = "(F)ind in (H)elp tags",
-        },
-        {
-            "<leader>fk",
-            function() require('fzf-lua').keymaps({}) end,
-            desc = "(F)ind (K)eymaps",
-        },
-        {
-            "<leader>/",
-            function() require('fzf-lua').lgrep_curbuf({}) end,
-            desc = "Find fuzzy in current buffer",
-        },
+        -- {
+        --     "<leader>ff",
+        --     function() require('fzf-lua').files({}) end,
+        --     desc = "(F)ind (f)iles",
+        -- },
+        -- {
+        --     "<leader>fr",
+        --     function() require('fzf-lua').live_grep_native({}) end,
+        --     desc = "(F)ind with (G)rep",
+        -- },
+        -- {
+        --     "<leader><space>",
+        --     function() require('fzf-lua').buffers({}) end,
+        --     desc = "(F)ind open (space)Buffers",
+        -- },
+        -- {
+        --     "<leader>fg",
+        --     function() require('fzf-lua').git_files({}) end,
+        --     desc = "(F)ind with (G)it files",
+        -- },
+        -- {
+        --     "<leader>fdd",
+        --     function() require('fzf-lua').lsp_document_diagnostics({}) end,
+        --     desc = "(F)ind (D)iagnistics (D)ocument",
+        -- },
+        -- {
+        --     "<leader>fdw",
+        --     function() require('fzf-lua').lsp_workspace_diagnostics({}) end,
+        --     desc = "(F)ind (D)iagnistic (W)orkspace",
+        -- },
+        -- {
+        --     "<leader>fq",
+        --     function() require('fzf-lua').quickfix({}) end,
+        --     desc = "(F)ind in (Q)uickfix list",
+        -- },
+        -- {
+        --     "<leader>fh",
+        --     function() require('fzf-lua').helptags({}) end,
+        --     desc = "(F)ind in (H)elp tags",
+        -- },
+        -- {
+        --     "<leader>fk",
+        --     function() require('fzf-lua').keymaps({}) end,
+        --     desc = "(F)ind (K)eymaps",
+        -- },
+        -- {
+        --     "<leader>/",
+        --     function() require('fzf-lua').lgrep_curbuf({}) end,
+        --     desc = "Find fuzzy in current buffer",
+        -- },
     },
 }
