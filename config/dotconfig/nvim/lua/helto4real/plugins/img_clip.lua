@@ -36,11 +36,6 @@ return {
       --   return vim.fn.expand("%:t:r") .. "-img"
       -- end,
 
-      -- Conditional dir_path based on skitty mode
-      dir_path = vim.g.neovim_mode == "skitty" and "img" or function()
-        return vim.fn.expand("%:t:r") .. "-img"
-      end,
-
       -- If you want to get prompted for the filename when pasting an image
       -- This is the actual name that the physical file will have
       -- If you set it to true, enter the name without spaces or extension `test-image-1`
@@ -48,7 +43,7 @@ return {
       --
       -- I don't want to give my images a name, but instead autofill it using
       -- the date and time as shown on `file_name` below
-      prompt_for_file_name = false, ---@type boolean
+      prompt_for_file_name = true, ---@type boolean
       file_name = "%y%m%d-%H%M%S", ---@type string
 
       -- -- Set the extension that the image file will have
@@ -56,8 +51,11 @@ return {
       -- -- Notice that I HAVE to convert the images to the desired format
       -- -- If you don't specify the output format, you won't see the size decrease
 
-      extension = "avif", ---@type string
-      process_cmd = "convert - -quality 75 avif:-", ---@type string
+      extension = "png", ---@type string
+      -- process_cmd = "convert - -quality 100 png:-", ---@type string
+      -- process_cmd = "convert - -density 300 -quality 100 -filter Lanczos -unsharp 0x0.5 -normalize -adaptive-resize 25%  png:-", ---@type string
+      -- process_cmd = "convert - -quality 100 -filter Triangle -define filter:support=2 -posterize 136 -unsharp 0.25x0.25+8+0.065 -dither None -interlace none -colorspace sRGB -thumbnail 50% -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -strip png:-", ---@type string
+      -- process_cmd = "convert - -quality 100 -adaptive-resize 75% -filter Lanczos -unsharp 0x1 png:-", ---@type string
 
       -- extension = "webp", ---@type string
       -- process_cmd = "convert - -quality 75 webp:-", ---@type string
@@ -112,7 +110,7 @@ return {
         -- template = vim.g.neovim_mode == "skitty" and "![i]($FILE_PATH)" or "![Image]($FILE_PATH)",
         --
         -- I want to use blink.cmp to easily find images with the LSP, so adding ./ lamw25wmal
-        template = vim.g.neovim_mode == "skitty" and "![i](./$FILE_PATH)" or "![Image](./$FILE_PATH)",
+        template = "![Image]($FILE_PATH)",
         --
         -- -- This will dynamically configure the alternative text to show the
         -- -- same that you configured as the "file_name" above

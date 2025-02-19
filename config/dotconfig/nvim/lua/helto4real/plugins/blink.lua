@@ -34,7 +34,7 @@ return
             },
             sources = {
                 default = { "lsp", "path", "snippets", "buffer", "copilot" },
-                cmdline = {}, -- Disable sources for command-line mode
+                -- cmdline = {}, -- Disable sources for command-line mode
                 providers = {
                     lsp = {
                         min_keyword_length = 0, -- Number of characters to trigger
