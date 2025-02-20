@@ -107,7 +107,11 @@ source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-### -- EXPORTS ---
+
+### -- STUFF --
+source ~/.config/.environment.zsh
+
+## -- EXPORTS ---
 
 export BROWSER="zen"
 export EDITOR="nvim"
@@ -172,6 +176,10 @@ alias vi='nvim'
 alias vim='nvim'
 alias ni='nvim'
 alias rvim='nssh'
+
+### -- AI ALIASES ---
+alias oai='aichat -m "openai:gpt-4o-mini"'
+alias ai='~/.config/scripts/open_local_ai.sh -m ollama:llama3.2:latest'
 
 ### -- NEOVOM FUNCTIONS ---
 function __nssh_usage() {

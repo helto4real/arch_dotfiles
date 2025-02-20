@@ -140,7 +140,9 @@ return {
             {
                 "<leader>ff",
                 function()
-                    Snacks.picker.smart()
+                    Snacks.picker.smart({
+                        hidden = true,
+                    })
                 end,
                 desc = "(F)iles",
             },
