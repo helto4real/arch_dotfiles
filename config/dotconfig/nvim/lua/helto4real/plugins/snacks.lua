@@ -1,12 +1,3 @@
--- https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md
--- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
-
--- NOTE: If you experience an issue in which you cannot select a file with the
--- snacks picker when you're in insert mode, only in normal mode, and you use
--- the bullets.vim plugin, that's the cause, go to that file to see how to
--- resolve it
--- https://github.com/folke/snacks.nvim/issues/812
-
 return {
     {
         "folke/snacks.nvim",
@@ -26,9 +17,9 @@ return {
                 end,
                 desc = "(L)og",
             },
-        { "<leader>fgf", function() Snacks.picker.git_files() end,     desc = "(F)iles" },
-            { "<leader>fr", function() Snacks.picker.grep() end,          desc = "G(r)ep" },
-            { "<leader>fn", function() Snacks.picker.notifications() end, desc = "(N)otifications" },
+            { "<leader>fgf", function() Snacks.picker.git_files() end,     desc = "(F)iles" },
+            { "<leader>fr",  function() Snacks.picker.grep() end,          desc = "G(r)ep" },
+            { "<leader>fn",  function() Snacks.picker.notifications() end, desc = "(N)otifications" },
             {
                 "<leader>fdd",
                 function() Snacks.picker.diagnostics_buffer() end,
@@ -175,6 +166,40 @@ return {
                 end,
                 desc = "Pick buffer",
             },
+            -- Toggle zen mode
+            {
+                "<leader>z",
+                function()
+                    Snacks.zen.zen({
+                        win = {
+                            backdrop = {
+                                transparent = false,
+                            },
+                            width = 150,
+                        },
+                        toggles = {
+                            dim = false,
+                        },
+                    })
+                end,
+                desc = "(Z)en mode",
+            },
+            -- Toggle lazygit
+            {
+                "<leader>tg",
+                function()
+                    Snacks.lazygit.open()
+                end,
+                desc = "Lazy (G)it",
+            },
+            -- Toggle terminal
+            {
+                "<leader>tt",
+                function()
+                    Snacks.terminal.toggle()
+                end,
+                desc = "(T)erminal",
+            },
         },
         opts = {
             -- Documentation for the picker
@@ -276,9 +301,9 @@ return {
             -- Here's the lazygit snak docs
             -- https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md
             lazygit = {
-                theme = {
-                    selectedLineBgColor = { bg = "CursorLine" },
-                },
+                -- theme = {
+                --     selectedLineBgColor = { bg = "CursorLine" },
+                -- },
                 -- With this I make lazygit to use the entire screen, because by default there's
                 -- "padding" added around the sides
                 -- I asked in LazyGit, folke didn't like it xD xD xD
@@ -298,6 +323,35 @@ return {
                 enabled = true,
                 top_down = false, -- place notifications from top to bottom
             },
+            zen = {
+                enabled = true,
+
+            },
+            terminal = {
+                enaled = true,
+                win = {
+                    position = "float", -- Set the terminal to open as a floating window
+                    width = 0.8, -- Relative width (80% of the editor)
+                    height = 0.8, -- Relative height (80% of the editor)
+                    border = "single", -- Optional: Add a border style
+                },
+            },
+            indent = {
+                enabled = true,
+                indent = {
+                    char = "┊",
+                },
+                scope = {
+                    enabled = true, -- enable highlighting the current scope
+                    char = "┊",
+                },
+                animate = {
+                    enabled = false,
+                },
+            },
+            -- input = {
+            --     enabled = true,
+            -- },
             image = {
                 enabled = true,
                 doc = {
@@ -345,8 +399,8 @@ return {
                         { icon = " ", key = "<esc>", desc = "Quit", action = ":qa" },
                     },
                     header = [[
-        $$\   $$\ $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$$\ $$$$$$$\  $$$$$$$\
-        $$$\  $$ |$$  _____|$$  __$$\ $$$\  $$ |$$  _____|$$  __$$\ $$  __$$\
+      $$\   $$\ $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$$\ $$$$$$$\  $$$$$$$\
+      $$$\  $$ |$$  _____|$$  __$$\ $$$\  $$ |$$  _____|$$  __$$\ $$  __$$\
         $$$$\ $$ |$$ |      $$ /  $$ |$$$$\ $$ |$$ |      $$ |  $$ |$$ |  $$ |
         $$ $$\$$ |$$$$$\    $$ |  $$ |$$ $$\$$ |$$$$$\    $$$$$$$  |$$ |  $$ |
         $$ \$$$$ |$$  __|   $$ |  $$ |$$ \$$$$ |$$  __|   $$  __$$< $$ |  $$ |
@@ -356,6 +410,11 @@ return {
                     ]],
                 },
             },
+            -- styles = {
+            --     zen = {
+            --         backdrop = { transparent = false, blend = 0 },
+            --     },
+            -- },
         },
     },
 }

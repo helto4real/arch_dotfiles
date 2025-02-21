@@ -20,6 +20,7 @@ return {
                     -- See the configuration section for more details
                     -- Load luvit types when the `vim.uv` word is found
                     { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                    { path = "snacks.nvim", words = { "Snacks" } }
                 },
             },
         },
@@ -81,7 +82,7 @@ return {
                 nmap('<leader>fsd', function() Snacks.picker.lsp_workspace_symbols() end, '(W)orkspace')
                 nmap('<leader>fR', function() Snacks.picker.lsp_references() end, '(R)eferences')
                 -- See `:help K` for why this keymap
-                nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+                nmap('<leader>k', vim.lsp.buf.hover, 'Hover Documentation')
                 nmap('<leader>ck', vim.lsp.buf.signature_help, 'Signature Documentation')
                 -- Lesser used LSP functionality
 

@@ -1,8 +1,9 @@
+-- return {}
 return {
     -- dir = "~/git/dotnet-tools",
     "helto4real/dotnet-tools.vim",
     event = "VeryLazy",
-    dependencieset = {
+    dependencies = {
         "plenary.nvim",
     },
     init = function()

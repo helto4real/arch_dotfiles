@@ -52,7 +52,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -78,35 +78,6 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 # enable syntax highlighting plugin
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch $(uname -m)"
-
-# Set personal aliases, overriding those provided by Oh My Zsh libs,
-# plugins, and themes. Aliases can be placed here, though Oh My Zsh
-# users are encouraged to define aliases within a top-level file in
-# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
-# - $ZSH_CUSTOM/aliases.zsh
-# - $ZSH_CUSTOM/macos.zsh
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 
 ### -- STUFF --
 source ~/.config/.environment.zsh
@@ -122,12 +93,8 @@ path+=~/.local/bin
 path+=~/.dotnet/tools
 export PATH
 
-# autoload -Uz compinit
-# compinit
-
 # Bat theme
 export BAT_THEME=tokyonight_night
-### -- SPECIFIC exports ---
 
 # --- setup fzf theme and shell integration ---
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
@@ -151,8 +118,10 @@ eval "$(fzf --zsh)"
 # Setup yubikey stuff
 export KEYID=392AFB734FE22D59
 export GPG_TTY=$(tty)
+
 #Making sure we're using gpg2
 alias gpg=gpg2
+
 # Start the gpg-agent if not already running
 if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
           gpg-connect-agent /bye >/dev/null 2>&1
@@ -180,6 +149,7 @@ alias rvim='nssh'
 ### -- AI ALIASES ---
 alias oai='aichat -m "openai:gpt-4o-mini"'
 alias ai='~/.config/scripts/open_local_ai.sh -m ollama:llama3.2:latest'
+alias rai='~/.config/scripts/open_local_ai.sh -m ollama:deepseek-r1:14b'
 
 ### -- NEOVOM FUNCTIONS ---
 function __nssh_usage() {

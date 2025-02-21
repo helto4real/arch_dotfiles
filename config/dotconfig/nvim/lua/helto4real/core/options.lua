@@ -7,7 +7,7 @@ vim.g.maplocalleader = ' '
 -- helps perfomance on windows with my anti-virus software
 vim.g.nofsync = true
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- Don't show the mode, since it's already in status line
 opt.showmode = false

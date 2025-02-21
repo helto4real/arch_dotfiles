@@ -17,7 +17,7 @@ return {
         event = "VeryLazy",
         requires = {
             'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope.nvim',
+            'folke/snacks.nvim',
             'nvim-tree/nvim-web-devicons',
         },
         config = function()
@@ -247,9 +247,9 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",  -- required
             "sindrets/diffview.nvim", -- optional - Diff integration
-            "ibhagwan/fzf-lua",              -- optional
+            -- "ibhagwan/fzf-lua",              -- optional
             -- Only one of these is needed, not both.
-            -- "nvim-telescope/telescope.nvim", -- optional
+            "nvim-telescope/telescope.nvim", -- optional
         },
         config = true
     }
