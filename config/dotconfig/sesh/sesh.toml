@@ -1,12 +1,12 @@
 [[session]]
 name = "ND-Netdaemon 🚀"
 path = "~/git/netdaemon"
-startup_command = "~/.config/sesh/scripts/dev.sh"
+# startup_command = "~/.config/sesh/scripts/dev.sh"
 
 [[session]]
 name = "ND-Docs 📃"
 path = "~/git/docs"
-startup_command = "~/.config/sesh/scripts/dev.sh"
+# startup_command = "~/.config/sesh/scripts/dev.sh"
 
 [[session]]
 name = "Dotfiles 🖥️"

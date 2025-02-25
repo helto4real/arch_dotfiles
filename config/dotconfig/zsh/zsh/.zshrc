@@ -149,6 +149,7 @@ alias rvim='nssh'
 ### -- AI ALIASES ---
 alias oai='aichat -m "openai:gpt-4o-mini"'
 alias ai='~/.config/scripts/open_local_ai.sh -m ollama:llama3.2:latest'
+alias cai='~/.config/scripts/open_local_ai.sh -m ollama:qwen2.5-coder:32b'
 alias rai='~/.config/scripts/open_local_ai.sh -m ollama:deepseek-r1:14b'
 
 ### -- NEOVOM FUNCTIONS ---
