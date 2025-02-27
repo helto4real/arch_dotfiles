@@ -209,5 +209,10 @@ compdef _nssh nssh
 
 toilet "Helto4Real" -F border:metal -f emboss2
 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 ### --- STARSHIP INIT ---
 eval "$(starship init zsh)"
+

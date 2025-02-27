@@ -8,7 +8,8 @@ return {
         provider = "copilot",
         copilot = {
             endpoint = "https://api.githubcopilot.com",
-            model = "o3-mini",
+            model = "claude-3.7-sonnet",
+            -- model = "o3-mini",
             proxy = nil,            -- [protocol://]host[:port] Use this proxy
             allow_insecure = false, -- Allow insecure server connections
             timeout = 30000,        -- Timeout in milliseconds
