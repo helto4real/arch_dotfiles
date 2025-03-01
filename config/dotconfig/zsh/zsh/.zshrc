@@ -82,136 +82,17 @@ source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 ### -- STUFF --
 source ~/.config/.environment.zsh
 
-## -- EXPORTS ---
-
-export BROWSER="zen"
-export EDITOR="nvim"
-export VISUAL="nvim"
-
-### --- PATH exports ---
-path+=~/.local/bin
-path+=~/.dotnet/tools
-export PATH
-
-# Bat theme
-export BAT_THEME=tokyonight_night
-
-# --- setup fzf theme and shell integration ---
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
-
-fg="#CBE0F0"
-bg="#011628"
-bg_highlight="#143652"
-purple="#B388FF"
-blue="#06BCE4"
-cyan="#2CF9ED"
-
-export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
-
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
-
-# Setup yubikey stuff
-export KEYID=392AFB734FE22D59
-export GPG_TTY=$(tty)
-
-#Making sure we're using gpg2
-alias gpg=gpg2
-
-# Start the gpg-agent if not already running
-if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-          gpg-connect-agent /bye >/dev/null 2>&1
-fi
-
-# Set SSH to use gpg-agent
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-    export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
-fi
-
-# Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
-
-### -- ALIASES ---
-alias top='bpytop'
-alias tm='tmux new-session -A -s main'
-alias lzg='lazygit'
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
-alias vi='nvim'
-alias vim='nvim'
-alias ni='nvim'
-alias rvim='nssh'
-
-### -- AI ALIASES ---
-alias oai='aichat -m "openai:gpt-4o-mini"'
-alias ai='~/.config/scripts/open_local_ai.sh -m ollama:llama3.2:latest'
-alias cai='~/.config/scripts/open_local_ai.sh -m ollama:qwen2.5-coder:32b'
-alias rai='~/.config/scripts/open_local_ai.sh -m ollama:deepseek-r1:14b'
-
-### -- NEOVOM FUNCTIONS ---
-function __nssh_usage() {
-    echo -e "${ARROW} ${YELLOW}Usage: nssh -s <server> [-d remote_dir]${NC}"
-}
-
-function nssh() {
-    local remote_dir='/'
-    local server=''
-    local OPTIND=1
-    while getopts "hd:s:" opt; do
-        case ${opt} in
-            h )
-                __nssh_usage
-                return 0
-                ;;
-            d )
-                local remote_dir=$OPTARG
-                ;;
-            s )
-                local server=$OPTARG
-                ;;
-            \? )
-                echo -e "${WARNING} ${YELLOW}Invalid option${NC}"
-                __nssh_usage
-                return 1
-                ;;
-        esac
-    done
-    if [ -z $server ]; then
-        __nssh_usage
-        return 1
+### --- SOURCE CUSTOM SCRIPTS ---
+# Source all files in the custom scripts directory
+if [ -d "$HOME/.config/zsh/scripts" ]; then
+  for script in "$HOME/.config/zsh/scripts"/*.zsh; do
+    if [ -f "$script" ]; then
+      source "$script"
     fi
-    if [ ! -d ~/.sshfs ]; then mkdir ~/.sshfs > /dev/null 2>&1; fi
-    if [ ! -d ~/.sshfs/$server ]; then mkdir ~/.sshfs/$server > /dev/null 2>&1; fi
-    # sshfs -o default_permissions $server:$remote_dir $HOME/.sshfs/$server
-    sshfs $server:$remote_dir $HOME/.sshfs/$server
-    nvim $HOME/.sshfs/$server
-    fusermount -zu $HOME/.sshfs/$server
-    rm -rf $HOME/.sshfs/$server
-}
-
-
-# give nssh ssh tab completion for servers in ~/.ssh/config
-function _nssh() {
-    local cur prev opts
-    COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts=$(grep -E '^Host ' ~/.ssh/config | awk '{print $2}')
-    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-    return 0
-}
-compdef _nssh nssh
-
+  done
+fi
 
 toilet "Helto4Real" -F border:metal -f emboss2
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
 
 ### --- STARSHIP INIT ---
 eval "$(starship init zsh)"
