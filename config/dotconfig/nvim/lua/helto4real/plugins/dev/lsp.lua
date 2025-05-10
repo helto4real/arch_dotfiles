@@ -74,6 +74,7 @@ return {
                 nmap('<leader>ce', '<cmd>Trouble diagnostics toggle focus=false filter.buf=0<CR>', '(e)rrors')
                 nmap('<leader>cr', vim.lsp.buf.rename, '(R)ename')
                 nmap('<leader>ca', vim.lsp.buf.code_action, 'Code [A]ction')
+                nmap('<leader>gd', vim.lsp.buf.definition, '(D)efinition')
                 nmap('<leader>gi', function() Snacks.picker.lsp_definitions() end, '(D)efintion')
                 nmap('<leader>gi', function() Snacks.picker.lsp_implementations() end, '(I)mplementation')
                 nmap('<leader>gD', function() Snacks.picker.lsp_declarations() end, '(D)eclaration')

@@ -12,6 +12,6 @@ alias rvim='nssh'                  # Remote vim (presumably via SSH)
 
 # AI chat model aliases
 alias oai='aichat -m "openai:gpt-4o-mini"'  # OpenAI GPT-4o-mini chat
-alias ai='~/.config/scripts/open_local_ai.sh -m ollama:llama3.2:latest'  # Local Llama 3.2 model
+alias ai='~/.config/scripts/open_local_ai.sh -m ollama:gemma3:12b'  # Local Llama 3.2 model
 alias cai='~/.config/scripts/open_local_ai.sh -m ollama:qwen2.5-coder:32b'  # Qwen 2.5 coder model (32B)
 alias rai='~/.config/scripts/open_local_ai.sh -m ollama:deepseek-r1:14b'  # DeepSeek R1 model (14B)

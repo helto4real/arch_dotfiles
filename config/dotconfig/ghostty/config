@@ -56,3 +56,10 @@ mouse-hide-while-typing = true
 
 copy-on-select = true
 confirm-close-surface = false
+
+# Explicitly unbind Alt + <key> if you know the specific combo
+keybind = alt+j=unbind
+keybind = alt+k=unbind
+
+# keybind = unconsumed:alt+j
+# keybind = unconsumed:alt+k

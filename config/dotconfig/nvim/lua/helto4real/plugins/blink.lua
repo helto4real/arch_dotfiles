@@ -38,7 +38,7 @@ return
                 providers = {
                     lsp = {
                         min_keyword_length = 0, -- Number of characters to trigger
-                        score_offset = 0,   -- Boost/penalize the score of the items
+                        score_offset = 0,       -- Boost/penalize the score of the items
                     },
                     path = {
                         min_keyword_length = 0,
@@ -57,6 +57,9 @@ return
                         async = true,
                     },
                 },
+                per_filetype = {
+                    codecompanion = { "codecompanion" },
+                }
             },
             -- -- default list of enabled providers defined so that you can extend it
             -- -- elsewhere in your config, without redefining it, via `opts_extend`
