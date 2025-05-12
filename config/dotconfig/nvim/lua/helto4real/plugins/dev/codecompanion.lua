@@ -66,8 +66,15 @@ return {
                 gemini = function()
                     return require("codecompanion.adapters").extend("gemini", {
                         env = {
-                            -- api_key = "cmd:op read op://personal/Gemini_API/credential --no-newline",
-                            api_key = "AIzaSyCxg72TpkuDD58d9bjYHJoWDOK3txWF0Ms",
+                            api_key = function()
+                                        local file = io.open("/home/thhel/.config/.secrets/gemini_api_key.txt", "r")
+                                        if file then
+                                            local content = file:read("*all"):gsub("%s+$", "") -- Read and trim whitespace
+                                            file:close()
+                                            return content
+                                        end
+                                        return nil
+                                    end,
                         },
                         schema = {
                             model = {
