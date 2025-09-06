@@ -4,17 +4,20 @@ return {
     lazy = false,
     version = false, -- set this to "*" if you want to always pull the latest change, false to update on release
     opts = {
-        -- add any opts here
-        provider = "copilot",
-        copilot = {
-            endpoint = "https://api.githubcopilot.com",
-            model = "claude-3.7-sonnet",
-            -- model = "o3-mini",
-            proxy = nil,            -- [protocol://]host[:port] Use this proxy
-            allow_insecure = false, -- Allow insecure server connections
-            timeout = 30000,        -- Timeout in milliseconds
-            temperature = 0,
-            max_tokens = 4096,
+        providers = {
+
+            copilot = {
+                endpoint = "https://api.githubcopilot.com",
+                model = "claude-4.0-sonnet",
+                -- model = "o3-mini",
+                proxy = nil,            -- [protocol://]host[:port] Use this proxy
+                allow_insecure = false, -- Allow insecure server connections
+                timeout = 30000,        -- Timeout in milliseconds
+                extra_request_body = {
+                    temperature = 0,
+                    max_tokens = 4096,
+                }
+            },
         },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

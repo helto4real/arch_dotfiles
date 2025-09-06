@@ -43,7 +43,7 @@ return {
             { '<leader>t',     group = '(T)ab' },
             { '<leader>w',     group = '(W)indow' },
             { '<leader>l',     group = '(L)anguage' },
-            { '<leader>o',     group = '(O)bsidian' },
+            { '<leader>o',     group = '(O)pen code' },
             { '<leader>ol',    group = '(L)ink' },
             { '[',             group = 'Previous ([)' },
             { ']',             group = 'Next (])' },
