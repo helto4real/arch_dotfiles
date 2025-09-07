@@ -126,6 +126,11 @@ return {
                 desc = "[R]esume",
             },
             {
+                "<leader>cghpru",
+                "<cmd>Octo review submit<CR>",
+                desc = "S[u]bmit",
+            },
+            {
                 "<leader>cghprx",
                 "<cmd>Octo review close<CR>",
                 desc = "Close[X]",
