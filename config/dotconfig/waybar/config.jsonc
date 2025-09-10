@@ -11,9 +11,9 @@
         "disk",
         "temperature",
         "cpu",
-        "memory",
+        "memory"
         //"tray",
-        "custom/power"
+        // "custom/power"
     ],
     // Modules configuration
     "hyprland/workspaces": {
