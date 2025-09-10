@@ -1,8 +1,33 @@
 {
-  "$schema": "https://opencode.ai/config.json",
-  // Theme configuration
-  "theme": "tokyonight",
-  "model": "github-copilot/grok-code-fast-1",
-  "small_model": "github-copilot/gpt-5-mini",
-  "autoupdate": true,
+    "$schema": "https://opencode.ai/config.json",
+    // Theme configuration
+    "theme": "tokyonight",
+    "model": "github-copilot/grok-code-fast-1",
+    "small_model": "github-copilot/gpt-5-mini",
+    "autoupdate": true,
+    "provider": {
+        "ollama": {
+            "npm": "@ai-sdk/openai-compatible",
+            "options": {
+                "baseURL": "http://localhost:11434/v1"
+            },
+            "models": {
+                "gpt-oss:latest": {
+                    "name": "GPT OSS - local",
+                    "tools": ["bash", "edit", "webfetch", "glob", "grep", "list", "read", "write", "todowrite", "todoread", "task"],
+                    "reasoning": true,
+                    "options": {
+                        "num_ctx": 65536
+                    }
+                },
+                "qwen2.5-coder:32b": {
+                    "name": "qwen2.5-coder:32b",
+                    "tools": ["bash", "edit", "webfetch", "glob", "grep", "list", "read", "write", "todowrite", "todoread", "task"],
+                    "options": {
+                        "num_ctx": 65536
+                    }
+                }
+            }
+        }
+    }
 }
