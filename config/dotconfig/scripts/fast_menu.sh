@@ -1,7 +1,7 @@
 # shows a power menu for Hyprland
 
 daily_note="/home/thhel/.config/scripts/edit_daily_note.sh"
-toggle_vpn="/home/thhel/.config/scripts/toggle_wireguard.sh"
+toggle_vpn="/home/thhel/.config/scripts/toggle_wireguard_wrapper.sh"
 
 # Define the options for the power menu
 options="1. Daily Note\n2. Toggle VPN\nReboot\nLogout\nSuspend\nHibernate"
@@ -15,7 +15,7 @@ case $selected_option in
         $daily_note
         ;;
     "2. Toggle VPN")
-        sudo $toggle_vpn
+         $toggle_vpn
         ;;
     Reboot)
         systemctl reboot
