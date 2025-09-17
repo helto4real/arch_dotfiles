@@ -1,5 +1,5 @@
 # Theme for bat (a cat clone with syntax highlighting)
-export BAT_THEME=tokyonight_night
+export BAT_THEME="Catppuccin Mocha"
 
 # AI-related environment variables for CLI tools
 export OPENAI_MODEL="gpt-4o-mini"  # Default OpenAI model for API calls

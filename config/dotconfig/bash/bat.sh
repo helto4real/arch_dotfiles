@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-export BAT_THEME=tokyonight_night
+export BAT_THEME= "Catppuccin Mocha"

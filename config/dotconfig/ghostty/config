@@ -42,10 +42,11 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = tokyonight_night
+theme = catppuccin-mocha
+# theme = tokyonight_night
 
 font-family = Iosevka Nerd Font Mono
-font-style-italic = Iosevka Nerd Font Mono
+# font-style-italic = Iosevka NFM Italic
 font-size = 15
 # font-synthetic-style = italic
 font-variation-italic = wght=200

@@ -86,6 +86,7 @@ function _nssh() {
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0
 }
-
+autoload -Uz compinit
+compinit
 # Register the completion function for nssh command
 compdef _nssh nssh
