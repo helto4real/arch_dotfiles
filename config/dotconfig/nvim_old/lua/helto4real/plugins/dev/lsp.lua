@@ -4,7 +4,10 @@ return {
     -- event = "VeryLazy",
     -- event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { 'williamboman/mason.nvim',           event = "VeryLazy" },
+        {
+            'williamboman/mason.nvim',
+            event = "VeryLazy",
+        },
         { 'williamboman/mason-lspconfig.nvim', event = "VeryLazy" },
         { "mfussenegger/nvim-lint",            event = "VeryLazy" },
         { "rshkarin/mason-nvim-lint",          event = "VeryLazy" },
@@ -20,7 +23,7 @@ return {
                     -- See the configuration section for more details
                     -- Load luvit types when the `vim.uv` word is found
                     { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                    { path = "snacks.nvim", words = { "Snacks" } }
+                    { path = "snacks.nvim",        words = { "Snacks" } }
                 },
             },
         },
@@ -28,10 +31,6 @@ return {
         { "WhoIsSethDaniel/mason-tool-installer.nvim", event = "VeryLazy" },
         {
             "seblj/roslyn.nvim",
-            ft = "cs",
-            opts = {
-                -- your configuration comes here; leave empty for default settings
-            }
         },
     },
 
@@ -139,7 +138,7 @@ return {
             },
             automatic_installation = true,
         })
-        local lspconfig = require("lspconfig")
+        -- local lspconfig = require("lspconfig")
 
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = require('blink.cmp').get_lsp_capabilities()
@@ -151,23 +150,19 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
+        vim.lsp.config("*", {
+            capabilities = capabilities,
+        })
         -- configure html server
-        lspconfig["html"].setup({
-            capabilities = capabilities,
+        vim.lsp.config("html", {
             filetypes = { 'html', 'twig', 'hbs' },
-            -- on_attach = on_attach,
         })
-
-        lspconfig["bashls"].setup({
-            capabilities = capabilities,
-            -- filetypes = { 'html', 'twig', 'hbs' },
-            -- on_attach = on_attach,
-        })
+        vim.lsp.enable("html")
+        vim.lsp.config("bashls", {})
+        vim.lsp.enable("bashls")
         -- configure lua server
-        lspconfig["lua_ls"].setup({
-            capabilities = capabilities,
+        vim.lsp.config("lua_ls", {
             filetypes = { 'lua' },
-            -- on_attach = on_attach,
             settings = {
                 Lua = {
                     workspace = { checkThirdParty = false },
@@ -175,40 +170,26 @@ return {
                 },
             },
         })
-
+        vim.lsp.enable("lua_ls")
         -- configure v-language server
-        lspconfig["v_analyzer"].setup({
-            capabilities = capabilities,
+        vim.lsp.config("v_analyzer", {
             filetypes = { 'v' },
-            -- on_attach = on_attach,
         })
-
+        vim.lsp.enable("v_analyzer")
         -- configure yaml server
-        lspconfig["yamlls"].setup({
-            capabilities = capabilities,
+        vim.lsp.config("yamlls", {
             filetypes = { 'yaml', 'yml' },
-            -- on_attach = on_attach,
         })
-
-        lspconfig["jsonls"].setup({
-            capabilities = capabilities,
-            -- filetypes = { 'json' },
-            -- on_attach = on_attach,
-        })
-
-        lspconfig["pyright"].setup({
-            capabilities = capabilities,
-            -- filetypes = { 'yaml', 'yml' },
-            -- on_attach = on_attach,
-        })
-
+        vim.lsp.enable("yamlls")
+        vim.lsp.config("jsonls", {})
+        vim.lsp.enable("jsonls")
+        vim.lsp.config("pyright", {})
+        vim.lsp.enable("pyright")
         local util = require "lspconfig/util"
-        lspconfig["gopls"].setup({
-            capabilities = capabilities,
+        vim.lsp.config("gopls", {
             filetypes = { "go", "gomod", "gowork", "gotmpl" },
             root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-            -- filetypes = { 'yaml', 'yml' },
-            -- on_attach = on_attach,
         })
+        vim.lsp.enable("gopls")
     end,
 }
