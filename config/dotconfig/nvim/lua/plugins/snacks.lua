@@ -1,5 +1,8 @@
 return {
   "snacks.nvim",
+  keys = {
+    { "c-space", false },
+  },
   opts = function(_, opts)
     local logo = [[
       $$\   $$\ $$$$$$$$\  $$$$$$\  $$\   $$\ $$$$$$$$\ $$$$$$$\  $$$$$$$\

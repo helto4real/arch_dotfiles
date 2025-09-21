@@ -39,3 +39,18 @@ map("n", "<leader>uld", "<cmd>setlocal nospell<CR>", "Disable spell checking")
 map("n", "<leader>fy", function()
   vim.fn.setreg("+", vim.fn.expand("%:p"))
 end, "Yank full file path")
+
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "grt")
+vim.keymap.del("n", "gri")
+
+vim.keymap.set({ "n", "o", "x" }, "<c-g>", function()
+  require("flash").treesitter({
+    actions = {
+      ["<c-g>"] = "next",
+      ["<BS>"] = "prev",
+    },
+  })
+end, { desc = "Treesitter Incremental Selection" })
