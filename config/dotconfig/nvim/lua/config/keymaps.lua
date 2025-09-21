@@ -35,3 +35,7 @@ map("n", "N", "Nzzzv", "Next search up")
 map("n", "<leader>ule", "<cmd>setlocal spell spelllang=en_us<CR>", "Spell check - English")
 map("n", "<leader>uls", "<cmd>setlocal spell spelllang=sv<CR>", "Spell check - Swedish")
 map("n", "<leader>ld", "<cmd>setlocal nospell<CR>", "[D]isable spell checking")
+
+map("n", "<leader>fy", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, "Yank full file path")
