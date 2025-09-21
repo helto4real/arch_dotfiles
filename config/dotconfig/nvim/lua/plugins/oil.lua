@@ -4,7 +4,6 @@ return {
   -- },
   -- Optional dependencies
   dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   config = function()
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
