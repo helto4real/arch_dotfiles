@@ -1,0 +1,16 @@
+{
+    "com.github.ulauncher.ulauncher-emoji": {
+        "id": "com.github.ulauncher.ulauncher-emoji",
+        "url": "https://github.com/Ulauncher/ulauncher-emoji",
+        "updated_at": "2025-09-28T16:51:29.041745",
+        "last_commit": "a294e2d623c09f6443981e33385e97784f55b988",
+        "last_commit_time": "2025-09-08T15:28:24"
+    },
+    "com.github.nastuzzisamy.ulauncher-custom-scripts": {
+        "id": "com.github.nastuzzisamy.ulauncher-custom-scripts",
+        "url": "https://github.com/NastuzziSamy/ulauncher-custom-scripts",
+        "updated_at": "2025-09-28T17:02:26.298298",
+        "last_commit": "7a68cbafb4acc01fed340d0d2ae99a6701724b31",
+        "last_commit_time": "2022-11-21T21:19:31"
+    }
+}

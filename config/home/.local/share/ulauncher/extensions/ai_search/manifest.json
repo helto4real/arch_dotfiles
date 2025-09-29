@@ -1,0 +1,19 @@
+{
+  "required_api_version": "2",
+  "name": "AI search",
+  "description": "Opens new tab and ai search",
+  "developer_name": "helto4real",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "helto4real_ai_search_kw",
+      "type": "keyword",
+      "name": "AI search",
+      "description": "AI search extension",
+      "default_value": "ai"
+    }
+  ]
+}

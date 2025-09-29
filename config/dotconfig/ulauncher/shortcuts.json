@@ -1,0 +1,12 @@
+{
+    "97153bc5-83ca-430d-ba52-0053b2b71769": {
+        "id": "97153bc5-83ca-430d-ba52-0053b2b71769",
+        "name": "Wikipedia",
+        "keyword": "wiki",
+        "cmd": "https://en.wikipedia.org/wiki/%s",
+        "icon": "/usr/share/ulauncher/media/wikipedia-icon.png",
+        "is_default_search": true,
+        "run_without_argument": false,
+        "added": 1758858601.4235368
+    }
+}

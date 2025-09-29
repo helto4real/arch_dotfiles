@@ -1,0 +1,19 @@
+{
+  "required_api_version": "2",
+  "name": "Google search",
+  "description": "Opens new tab and google search",
+  "developer_name": "helto4real",
+  "icon": "images/icon.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "helto4real_google_search_kw",
+      "type": "keyword",
+      "name": "Google search",
+      "description": "Google search extension",
+      "default_value": "g"
+    }
+  ]
+}
