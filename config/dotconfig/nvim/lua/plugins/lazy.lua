@@ -1,3 +1,4 @@
+-- return {}
 return {
   "LazyVim/LazyVim",
   opts = {
