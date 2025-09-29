@@ -1,30 +1,28 @@
 # import webbrowser
+import os
+import shlex
 from ulauncher.api.client.Extension import Extension
 from ulauncher.api.client.EventListener import EventListener
 
 from ulauncher.api.shared.event import KeywordQueryEvent, ItemEnterEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
-# from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
-
-# from ulauncher.api.shared.action.OpenUrlAction import OpenUrlAction
-# from ulauncher.api.shared.action.OpenAction import OpenAction
-# from ulauncher.api.shared.action.ExtensionCustomAction import ExtensionCustomAction
+from ulauncher.api.shared.action.HideWindowAction import HideWindowAction
 from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
 
 
-class GoogleSearchExtension(Extension):
+class AISearchExtension(Extension):
     def __init__(self):
         super().__init__()
         self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
 
 
 class KeywordQueryEventListener(EventListener):
-    def on_event(self, event, extension):
+    def on_event(self, event, extension):  # type: ignore
         # Get the query from the user
         query = event.get_argument()
-        script_path_grok = "/home/thhel/.config/scripts/ulauncher-ai-search-grok.sh"
-        script_path_gemini = "/home/thhel/.config/scripts/ulauncher-ai-search-gemini.sh"
+        script_path_grok = extension.preferences["grok_script_path"]
+        script_path_gemini = extension.preferences["gemini_script_path"]
 
         # If there's no query yet, show a placeholder message
         if not query:
@@ -34,28 +32,55 @@ class KeywordQueryEventListener(EventListener):
                         icon="images/icon.png",
                         name="AI Search",
                         description="Enter your search term...",
-                        on_enter=None,
+                        on_enter=HideWindowAction(),
                     )
                 ]
             )
 
-        # Create the result item to display in Ulauncher
-        grok_item = ExtensionResultItem(
-            icon="images/icon.png",
-            name=f"Search for '{query}'",
-            description="Open Grok search results in your browser",
-            on_enter=RunScriptAction(f'sh {script_path_grok} "{query}"'),
-        )
+        items = []
 
-        gemini_item = ExtensionResultItem(
-            icon="images/icon.png",
-            name=f"Search for '{query}'",
-            description="Open Gemini search results in your browser",
-            on_enter=RunScriptAction(f'sh {script_path_gemini} "{query}"'),
-        )
+        # Check and add Grok item
+        if os.path.exists(script_path_grok):
+            grok_item = ExtensionResultItem(
+                icon="images/icon.png",
+                name=f"Search for '{query}' with Grok",
+                description="Open Grok search results in your browser",
+                on_enter=RunScriptAction(f"sh {script_path_grok} {shlex.quote(query)}"),
+            )
+            items.append(grok_item)
+        else:
+            items.append(
+                ExtensionResultItem(
+                    icon="images/icon.png",
+                    name="Grok Script Not Found",
+                    description=f"Script not found at {script_path_grok}",
+                    on_enter=HideWindowAction(),
+                )
+            )
 
-        return RenderResultListAction([grok_item, gemini_item])
+        # Check and add Gemini item
+        if os.path.exists(script_path_gemini):
+            gemini_item = ExtensionResultItem(
+                icon="images/icon.png",
+                name=f"Search for '{query}' with Gemini",
+                description="Open Gemini search results in your browser",
+                on_enter=RunScriptAction(
+                    f"sh {script_path_gemini} {shlex.quote(query)}"
+                ),
+            )
+            items.append(gemini_item)
+        else:
+            items.append(
+                ExtensionResultItem(
+                    icon="images/icon.png",
+                    name="Gemini Script Not Found",
+                    description=f"Script not found at {script_path_gemini}",
+                    on_enter=HideWindowAction(),
+                )
+            )
+
+        return RenderResultListAction(items)
 
 
 if __name__ == "__main__":
-    GoogleSearchExtension().run()
+    AISearchExtension().run()

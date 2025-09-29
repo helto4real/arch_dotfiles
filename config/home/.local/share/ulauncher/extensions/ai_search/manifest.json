@@ -1,7 +1,7 @@
 {
   "required_api_version": "2",
   "name": "AI search",
-  "description": "Opens new tab and ai search",
+  "description": "Search using Grok or Gemini AI in your browser",
   "developer_name": "helto4real",
   "icon": "images/icon.png",
   "options": {
@@ -14,6 +14,20 @@
       "name": "AI search",
       "description": "AI search extension",
       "default_value": "ai"
+    },
+    {
+      "id": "grok_script_path",
+      "type": "input",
+      "name": "Grok Script Path",
+      "description": "Path to the Grok search script",
+      "default_value": "/home/thhel/.config/scripts/ulauncher-ai-search-grok.sh"
+    },
+    {
+      "id": "gemini_script_path",
+      "type": "input",
+      "name": "Gemini Script Path",
+      "description": "Path to the Gemini search script",
+      "default_value": "/home/thhel/.config/scripts/ulauncher-ai-search-gemini.sh"
     }
   ]
 }
