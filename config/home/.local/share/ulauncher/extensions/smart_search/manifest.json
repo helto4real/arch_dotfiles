@@ -14,6 +14,13 @@
       "name": "Google search",
       "description": "Google search extension",
       "default_value": "g"
+    },
+    {
+      "id": "script_path",
+      "type": "input",
+      "name": "Script Path",
+      "description": "Path to the search script",
+      "default_value": "/home/thhel/.config/scripts/ulauncher-search.sh"
     }
   ]
 }

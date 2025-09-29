@@ -5,7 +5,7 @@ query="$1"
 
 hyprctl dispatch workspace 7
 
-# Open in a new window (adjust browser if not Firefox; e.g., google-chrome --new-window). This should auto-focus the new window on Hyprland.
+# Open query in new tab on correct workspace
 zen-browser -new-tab https://gemini.google.com
 
 # Wait for the page to load (adjust sleep if your system/network is slower/faster)
