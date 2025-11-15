@@ -11,17 +11,42 @@
 # sudo wg-quick up /home/thhel/.config/.secrets/wireguard/sdl85.conf
 # echo "Wireguard started successfully."
 # fi
+
+# Hämta original användarens UID (fungerar för både sudo och pkexec)
+if [ -n "$PKEXEC_UID" ]; then
+  ORIGINAL_UID="$PKEXEC_UID"
+elif [ -n "$SUDO_UID" ]; then
+  ORIGINAL_UID="$SUDO_UID"
+else
+  send_notification "Kunde inte hitta original användarens UID. Kör med sudo eller pkexec."
+  exit 1
+fi
+
+# Hämta användarnamnet från UID
+ORIGINAL_USER=$(getent passwd "$ORIGINAL_UID" | cut -d: -f1)
+
+# Sätt DBUS_SESSION_BUS_ADDRESS för användarens session (modern systemd-stil)
+DBUS_ADDR="unix:path=/run/user/$ORIGINAL_UID/bus"
+# Funktion för att skicka notifikation som original användaren
+send_notification() {
+  local title="$1"
+  local message="$2"
+  local urgency="${3:-normal}"  # Standard: normal, kan vara low, normal, critical
+
+  sudo -u "$ORIGINAL_USER" XDG_RUNTIME_DIR="/run/user/$ORIGINAL_UID" DBUS_SESSION_BUS_ADDRESS="$DBUS_ADDR" notify-send -u "$urgency" "$title" "$message"
+}
+
 #If wireguard is running, stop it else start it
 if ip link show "sdl85" >/dev/null 2>&1; then
-    echo "Wireguard is running. Stopping wireguard..."
+    send_notification "WireGuard" "Wireguard is running. Stopping wireguard..."
     sudo wg-quick down /home/thhel/.config/.secrets/wireguard/sdl85.conf
     sudo resolvconf -u
-    echo "Wireguard stopped successfully."
+    send_notification "WireGuard" "Wireguard stopped successfully"
 else
-    echo "Wireguard is not running. Starting wireguard..."
+    send_notification "WireGuard" "Wireguard is not running. Starting wireguard..."
     sudo resolvconf -u
     sudo wg-quick up /home/thhel/.config/.secrets/wireguard/sdl85.conf
-    echo "Wireguard started successfully."
+    send_notification "WireGuard" "Wireguard started successfully"
 fi
 
 # # Define the interface name

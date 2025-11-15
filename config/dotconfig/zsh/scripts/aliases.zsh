@@ -3,6 +3,7 @@ alias top='bpytop'                 # Enhanced system monitor replacement for top
 alias tm='tmux new-session -A -s main'  # Start or attach to a tmux session named 'main'
 alias lzg='lazygit'                # Git TUI client
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"  # Modern ls replacement with git integration
+alias z="zoxide"
 
 # Editor aliases
 alias vi='nvim'                    # Use neovim instead of vi

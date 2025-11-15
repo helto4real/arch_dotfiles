@@ -14,3 +14,4 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
+setopt share_history
