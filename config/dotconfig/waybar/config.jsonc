@@ -1,113 +1,112 @@
 {
-    "position": "top",
-    "height": 30,
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-    "modules-right": [
-        "clock",
-        "wireplumber",
-        "network",
-        "disk",
-        "temperature",
-        "cpu",
-        "memory"
-        //"tray",
-        // "custom/power"
-    ],
-    // Modules configuration
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{icon}",
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
-        },
-        "format-icons": {
-            "1": "dev",
-            "2": "www",
-            "3": "chat",
-            "4": "doc",
-            "5": "tasks",
-            "6": "noname",
-            "7": "ai",
-            "8": "vid",
-            "9": "gfx",
-            "10": "msc"
-        }
+  "position": "top",
+  "height": 30,
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "clock",
+    "wireplumber",
+    "network",
+    "disk",
+    "temperature",
+    "cpu",
+    "memory"
+    //"tray",
+    // "custom/power"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
     },
-    "custom/power": {
-        "format": "󰐥",
-        "on-click": "/home/thhel/.config/waybar/bin/waytbar-power.sh"
-    },
-    "clock": {
-        "format": "{:%Y-%m-%d %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-    "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
-        "format": "CPU {temperatureC}°C "
-    },
-    "network": {
-        "format-wifi": "{essid}",
-        "format-ethernet": "ETH-IP: {ipaddr}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "󰤮 Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "wireplumber": {
-        "format": "{volume}% {icon}",
-        "format-muted": "",
-        "on-click": "ghostty --class=Wiremix -e wiremix",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
-    },
-    //"pulseaudio": {
-    //	"format": "{icon}  {volume}%",
-    //       	"format-muted": "󰖁 Muted",
-    //       "format-icons": {
-    //           "headphone": "",
-    //           "hands-free": "",
-    //           "headset": "",
-    //           "phone": "",
-    //           "portable": "",
-    //           "car": "",
-    //           "default": ["","","", "", ""]
-    //       },
-    //   },
-    "tray": {
-        "icon-size": 13,
-        "spacing": 5,
-    },
-    "disk": {
-        "interval": 30,
-        "format": "ROOT {percentage_free}% FREE",
-        "path": "/"
-    },
-    "memory": {
-        "interval": 30,
-        "format": "RAM {used:0.1f}G/{total:0.1f}G "
-    },
-    "cpu": {
-        "interval": 10,
-        "format": "CPU {}% ",
-        "max-length": 20,
-        "on-click": "ghostty -e btop"
-
+    "format-icons": {
+      "1": "dev",
+      "2": "www",
+      "3": "chat",
+      "4": "doc",
+      "5": "tasks",
+      "6": "noname",
+      "7": "ai",
+      "8": "vid",
+      "9": "gfx",
+      "10": "msc"
     }
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "on-click": "/home/thhel/.config/waybar/bin/waytbar-power.sh"
+  },
+  "clock": {
+    "format": "{:%Y-%m-%d %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d %H:%M}"
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+    "format": "CPU {temperatureC}°C "
+  },
+  "network": {
+    "format-wifi": "{essid}",
+    "format-ethernet": "ETH-IP: {ipaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "󰤮 Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "wireplumber": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "on-click": "ghostty --class=Wiremix -e wiremix",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
+  },
+  //"pulseaudio": {
+  //	"format": "{icon}  {volume}%",
+  //       	"format-muted": "󰖁 Muted",
+  //       "format-icons": {
+  //           "headphone": "",
+  //           "hands-free": "",
+  //           "headset": "",
+  //           "phone": "",
+  //           "portable": "",
+  //           "car": "",
+  //           "default": ["","","", "", ""]
+  //       },
+  //   },
+  "tray": {
+    "icon-size": 13,
+    "spacing": 5,
+  },
+  "disk": {
+    "interval": 30,
+    "format": "ROOT {percentage_free}% FREE",
+    "path": "/"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "RAM {used:0.1f}G/{total:0.1f}G "
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "CPU {}% ",
+    "max-length": 20,
+    "on-click": "ghostty -e btop"
+  }
 }
 //// -*- mode: jsonc -*-
 //{

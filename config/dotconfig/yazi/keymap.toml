@@ -3,6 +3,16 @@ on = "M"
 run = "plugin mount"
 
 [[mgr.prepend_keymap]]
-on   = [ "g", "D" ]
-run  = "cd ~/Documents"
+on = ["g", "D"]
+run = "cd ~/Documents"
 desc = "Cd to ~/Documents"
+
+[[mgr.prepend_keymap]]
+on = ["g", "m"]
+run = "cd /mnt/media/gemensam/AI/ComfyUI"
+desc = "Gå till gemensamma ComfyUI-mappen"
+
+[[mgr.prepend_keymap]]
+on = ["g", "u"]
+run = "cd /home/thhel/comfy"
+desc = "Gå till Comfy-mappen"

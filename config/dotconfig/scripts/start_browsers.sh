@@ -2,11 +2,11 @@
 #
 sleep 2
 # Start the main browser on workspace 2
-hyprctl dispatch  exec "[silent] zen-browser google.com"
+hyprctl dispatch  exec "[silent] google-chrome-stable google.com"
 sleep 2
-hyprctl dispatch  exec "[silent] zen-browser --new-window https://gemini.google.com"
+hyprctl dispatch  exec "[silent] google-chrome-stable --new-window https://grok.com"
 sleep 2
-hyprctl dispatch  exec "[silent] zen-browser https://grok.com"
+hyprctl dispatch  exec "[silent] google-chrome-stable https://gemini.google.com"
 
 # Wait one second
 sleep 2

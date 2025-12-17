@@ -1,2 +1,8 @@
 [mgr]
 show_hidden = true
+
+[preview]
+max_width = 920
+max_height = 920
+
+# ueberzug_scale = 0.5
