@@ -2,11 +2,12 @@
 
 daily_note="/home/thhel/.config/scripts/edit_daily_note.sh"
 toggle_vpn="/home/thhel/.config/scripts/toggle_wireguard_wrapper.sh"
+toggle_vpn_usa="/home/thhel/.config/scripts/toggle_wireguard_wrapper_usa.sh"
 toggle_hdr="/home/thhel/.config/scripts/toggle_hdr.sh"
 toggle_comfyui="/home/thhel/.config/scripts/toggle_comfyui.sh"
 
 # Define the options for the power menu
-options="1. Daily Note\n2. Toggle VPN\n3. Btop\n4. Toggle HDR\n5. Toggle ComfyUI\nReboot\nLogout\nSuspend\nHibernate"
+options="1. Daily Note\n2. Toggle VPN\n3. Toggle VPN USA\n4. Btop\n5. Toggle HDR\n6. Toggle ComfyUI\nReboot\nLogout\nSuspend\nHibernate"
 
 # Show the menu using rofi
 selected_option=$(echo -e "$options" | rofi -dmenu -i -p "Fast menu:")
@@ -19,13 +20,16 @@ case $selected_option in
 "2. Toggle VPN")
   $toggle_vpn
   ;;
-"3. Btop")
+"3. Toggle VPN USA")
+  $toggle_vpn_usa
+  ;;
+"4. Btop")
   btop
   ;;
-"4. Toggle HDR")
+"5. Toggle HDR")
   $toggle_hdr
   ;;
-"5. Toggle ComfyUI")
+"6. Toggle ComfyUI")
   $toggle_comfyui
   ;;
 Reboot)
