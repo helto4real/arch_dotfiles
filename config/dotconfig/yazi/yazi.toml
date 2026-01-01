@@ -1,8 +1,42 @@
-[mgr]
+[manager]
 show_hidden = true
 
 [preview]
 max_width = 920
 max_height = 920
 
+[[open.prepend_rules]]
+mime = "video/*"
+use = ["play_unscaled", "play_standard", "play_vlc", "play_folder"]
+
+[[open.prepend_rules]]
+mime = "inode/directory"
+use = ["play_folder", "open"]
+
 # ueberzug_scale = 0.5
+[opener]
+play_folder = [
+  { run = 'mpv --video-unscaled .', orphan = true, desc = "Play all in folder" },
+]
+# Your default unscaled version
+play_unscaled = [
+  { run = 'mpv --video-unscaled "$@"', orphan = true, desc = "MPV (Unscaled)" },
+]
+# A standard version (scaled to window)
+play_standard = [{ run = 'mpv "$@"', orphan = true, desc = "MPV (Standard)" }]
+# An alternative player, e.g., VLC (if you have it installed)
+play_vlc = [{ run = 'vlc "$@"', orphan = true, desc = "VLC Player" }]
+
+# [open]
+# rules = [
+#   { mime = "video/*", use = [
+#     "play_unscaled",
+#     "play_standard",
+#     "play_vlc",
+#     "play_folder",
+#   ] },
+#   { mime = "inode/directory", use = [
+#     "play_folder",
+#     "open",
+#   ] },
+# ]
