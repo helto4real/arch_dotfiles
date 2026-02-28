@@ -11,7 +11,7 @@ hyprctl dispatch  exec "[silent] google-chrome-stable https://gemini.google.com"
 # Wait one second
 sleep 2
 # move the grok browser to workspace 7
-hyprctl dispatch movetoworkspacesilent 7, "title:^(.*Grok.*)"
+hyprctl dispatch movetoworkspacesilent 7, "title:^(.*Gemini.*)"
 sleep 2
 hyprctl dispatch movetoworkspacesilent 2, "title:^(.*Google Chrome.*)"
 sleep 2

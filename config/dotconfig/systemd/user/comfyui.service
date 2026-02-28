@@ -1,0 +1,14 @@
+[Unit]
+Description=ComfyUI User Service
+After=network.target
+
+[Service]
+Type=simple
+# Ersätt med din faktiska sökväg från 'pyenv which python'
+WorkingDirectory=/home/thhel/git/ComfyUI
+ExecStart=/home/thhel/.pyenv/versions/3.13.2/bin/python
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

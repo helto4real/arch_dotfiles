@@ -11,6 +11,16 @@ alias vim='nvim'                   # Use neovim instead of vim
 alias ni='nvim'                    # Short alias for neovim
 alias rvim='nssh'                  # Remote vim (presumably via SSH)
 
+# ComfyUI alias
+alias cui-start='systemctl --user start comfyui'
+alias cui-stop='systemctl --user stop comfyui'
+alias cui-restart='systemctl --user restart comfyui'
+alias cui-status='systemctl --user status comfyui'
+alias cui-logs='journalctl --user -u comfyui -f -n 100'
+
+# Yay package manager aliases
+alias yayu='yay -Syu --noconfirm'           # Update all packages
+
 # AI chat model aliases
 alias oai='aichat -m "openai:gpt-4o-mini"'  # OpenAI GPT-4o-mini chat
 alias ai='~/.config/scripts/open_local_ai.sh -m ollama:gpt-oss:latest'  # Local Llama 3.2 model

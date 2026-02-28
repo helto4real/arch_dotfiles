@@ -19,27 +19,27 @@ desc = "Gå till Comfy-mappen"
 
 [[mgr.prepend_keymap]]
 on = ["P", "p"]
-run = 'shell --orphan "mpv --video-unscaled ."'
+run = 'shell --orphan "mpv --video-unscaled=downscale-big ."'
 desc = "Play current directory in MPV"
 
 [[mgr.prepend_keymap]]
 on = ["P", "v"]
-run = 'shell --orphan "find . -maxdepth 1 -type f -exec file --mime-type {} + | grep \"video/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled"'
+run = 'shell --orphan "find . -maxdepth 1 -type f -exec file --mime-type {} + | grep \"video/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled=downscale-big"'
 desc = "Spela alla videofiler i mappen"
 
 [[mgr.prepend_keymap]]
 on = ["P", "V"]
-run = 'shell --orphan "find . -maxdepth 5 -type f -exec file --mime-type {} + | grep \"video/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled"'
+run = 'shell --orphan "find . -maxdepth 5 -type f -exec file --mime-type {} + | grep \"video/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled=downscale-big"'
 desc = "Spela alla videofiler i mappen rekursivt"
 
 [[mgr.prepend_keymap]]
 on = ["P", "i"]
-run = 'shell --orphan "find . -maxdepth 1 -type f -exec file --mime-type {} + | grep \"image/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled"'
+run = 'shell --orphan "find . -maxdepth 1 -type f -exec file --mime-type {} + | grep \"image/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled=downscale-big"'
 desc = "Spela alla videofiler i mappen"
 
 [[mgr.prepend_keymap]]
 on = ["P", "I"]
-run = 'shell --orphan "find . -maxdepth 5 -type f -exec file --mime-type {} + | grep \"image/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled"'
+run = 'shell --orphan "find . -maxdepth 5 -type f -exec file --mime-type {} + | grep \"image/\" | cut -d: -f1 | xargs -d \"\\n\" mpv --video-unscaled=downscale-big"'
 desc = "Spela alla videofiler i mappen rekursivt"
 
 [[mgr.prepend_keymap]]
