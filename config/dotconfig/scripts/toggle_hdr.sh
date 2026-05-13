@@ -10,7 +10,7 @@
 # Set your monitor's description and base configuration here.
 # You can get the description from `hyprctl monitors`.
 MONITOR_DESC="ASUSTek COMPUTER INC XG32UCWMG T7LMQS113050"
-BASE_CONFIG="3840x2160@240.02,auto,1.25"
+BASE_CONFIG="3840x2160@240.02,auto,1.25,bitdepth,10"
 # ---------------------
 
 # Construct the full monitor string for hyprctl commands
@@ -48,7 +48,7 @@ if [[ -f "$STATE_FILE" ]] && [[ "$(cat "$STATE_FILE")" == "on" ]]; then
   echo "HDR has been disabled."
 else
   # If HDR is off (or the state file doesn't exist), turn it on and update the state file.
-  hyprctl keyword monitor "${MONITOR_STRING},bitdepth,10,cm,hdr,sdrbrightness,1.2,sdrsaturation,0.98"
+  hyprctl keyword monitor "${MONITOR_STRING},cm,hdr,sdrbrightness,1.2,sdrsaturation,0.98"
   echo "on" >"$STATE_FILE"
   notify-send "HDR Enabled" "HDR has been turned on." -i display-brightness-high-symbolic
   echo "HDR has been enabled."
