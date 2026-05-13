@@ -7,7 +7,7 @@ toggle_hdr="/home/thhel/.config/scripts/toggle_hdr.sh"
 toggle_comfyui="/home/thhel/.config/scripts/toggle_comfyui.sh"
 
 # Define the options for the power menu
-options="1. Daily Note\n2. Toggle VPN\n3. Toggle VPN USA\n4. Btop\n5. Toggle HDR\n6. Toggle ComfyUI\nReboot\nLogout\nSuspend\nHibernate"
+options="1. Daily Note\n2. Toggle VPN\n3. Toggle VPN USA\n4. Btop\n5. Toggle HDR\n6. Toggle ComfyUI\nReboot\nLogout\nSuspend\nHibernate\nLock screen"
 
 # Show the menu using rofi
 selected_option=$(echo -e "$options" | rofi -dmenu -i -p "Fast menu:")
@@ -44,5 +44,9 @@ Suspend)
 Hibernate)
   systemctl hibernate
   ;;
+"Lock screen")
+  loginctl lock-session
+  ;;
+
 *) ;;
 esac

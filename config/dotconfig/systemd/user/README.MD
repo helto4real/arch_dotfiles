@@ -5,7 +5,10 @@
 
 # manage the serice with systemctl --user commands:
 ```
-Ladda om: systemctl --user daemon-reload
+Ladda om: 
+```
+systemctl --user daemon-reload
+```
 
 Starta: systemctl --user start comfyui
 

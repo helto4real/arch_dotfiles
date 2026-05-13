@@ -6,9 +6,9 @@ After=network.target
 Type=simple
 # Ersätt med din faktiska sökväg från 'pyenv which python'
 WorkingDirectory=/home/thhel/git/ComfyUI
-ExecStart=/home/thhel/.pyenv/versions/3.13.2/bin/python
+ExecStart= /home/thhel/.config/scripts/run_comfyui.sh
 Restart=always
-RestartSec=10
+RestartSec=5
 
 [Install]
 WantedBy=default.target

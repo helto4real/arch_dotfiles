@@ -93,6 +93,9 @@ if [ -d "$HOME/.config/zsh/scripts" ]; then
   done
 fi
 
+export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
+export PATH=/opt/cuda/bin:$PATH
+
 toilet "Helto4Real" -F border:metal -f emboss2
 
 ### --- STARSHIP INIT ---
