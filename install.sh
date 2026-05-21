@@ -134,6 +134,7 @@ _install_hyprland() {
     "hyprpaper"
     "hyprlock"
     "hypridle"
+    "hyprpolkitagent"
     "grim"
     "slurp"
     "xdg-desktop-portal-hyprland"
