@@ -1,4 +1,3 @@
--- return {}
 return {
   -- dir = "~/git/dotnet-tools",
   "helto4real/dotnet-tools.vim",
@@ -6,7 +5,7 @@ return {
   dependencies = {
     "plenary.nvim",
   },
-  init = function()
+  config = function()
     require("dotnet-tools").setup({})
   end,
   keys = {

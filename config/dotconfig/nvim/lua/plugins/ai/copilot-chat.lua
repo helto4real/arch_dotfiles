@@ -4,10 +4,10 @@ return {
     { "<c-s>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
     { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
     { "<leader>ac", "", desc = "+Copilot Chat", mode = { "n", "v" } },
-    { "<leader>aa", false, desc = "Disabled to avoid conflict with OpenCode", mode = { "n", "v" } },
-    { "<leader>ax", false, desc = "Disabled to avoid conflict with OpenCode", mode = { "n", "v" } },
-    { "<leader>aq", false, desc = "Disabled to avoid conflict with OpenCode", mode = { "n", "v" } },
-    { "<leader>ap", false, desc = "Disabled to avoid conflict with OpenCode", mode = { "n", "v" } },
+    { "<leader>aa", false, desc = "CopilotChat is namespaced under <leader>ac", mode = { "n", "v", "x" } },
+    { "<leader>ax", false, desc = "CopilotChat is namespaced under <leader>ac", mode = { "n", "v", "x" } },
+    { "<leader>aq", false, desc = "CopilotChat is namespaced under <leader>ac", mode = { "n", "v", "x" } },
+    { "<leader>ap", false, desc = "CopilotChat is namespaced under <leader>ac", mode = { "n", "v", "x" } },
     {
       "<leader>aca",
       function()

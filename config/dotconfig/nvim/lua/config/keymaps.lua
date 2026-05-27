@@ -18,8 +18,8 @@ keymap.set("n", "<C-a>", "ggVG")
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- window splitting
-map("n", "<leader>wv", "<C-w>s", "Split (V)ertically")
-map("n", "<leader>ws", "<C-w>v", "(S)plit")
+map("n", "<leader>wv", "<C-w>v", "Split (V)ertically")
+map("n", "<leader>ws", "<C-w>s", "(S)plit")
 map("n", "<leader>we", "<C-w>=", "(E)qual width")
 map("n", "<leader>wx", ":close<CR>", "Close (X)")
 
@@ -40,11 +40,11 @@ map("n", "<leader>fy", function()
   vim.fn.setreg("+", vim.fn.expand("%:p"))
 end, "Yank full file path")
 
-vim.keymap.del("n", "grn")
-vim.keymap.del("n", "grr")
-vim.keymap.del("n", "gra")
-vim.keymap.del("n", "grt")
-vim.keymap.del("n", "gri")
+pcall(vim.keymap.del, "n", "grn")
+pcall(vim.keymap.del, "n", "grr")
+pcall(vim.keymap.del, "n", "gra")
+pcall(vim.keymap.del, "n", "grt")
+pcall(vim.keymap.del, "n", "gri")
 
 vim.keymap.set({ "n", "o", "x" }, "<c-g>", function()
   require("flash").treesitter({

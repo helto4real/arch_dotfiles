@@ -6,28 +6,23 @@ vim.g.snacks_animate = false
 -- Don't show the mode, since it's already in status line
 local opt = vim.opt -- for easier to read
 
--- higlight matches while searching
-opt.incsearch = true
-
 -- No annoying backups
 opt.backup = false
 -- no wrapping helps for code
 opt.wrap = false
 
--- higlight matches while searching
+-- Highlight matches while searching
 opt.incsearch = true
--- do not highligt previous searches
+-- Keep previous search matches highlighted until cleared
 opt.hlsearch = true
--- do ignore case search when search
+-- Ignore case in searches unless uppercase characters are used
 opt.ignorecase = true
--- case sensitive if a case character is part of search
 opt.smartcase = true
 -- let's get smart indenting
 opt.smartindent = true
 
 -- enable conceallevel for markdown
 opt.conceallevel = 1
-opt.spell = true
 
 -- Decrease update time
 vim.opt.updatetime = 250
