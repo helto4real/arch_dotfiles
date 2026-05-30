@@ -18,6 +18,12 @@ return {
       desc = "Dotnet test",
     },
     {
+      "<leader>cdT",
+      mode = { "n", "o", "x" },
+      ":DotNetToolsTestTreeToggle<CR>",
+      desc = "Toggle dotnet test tree",
+    },
+    {
       "<leader>cdo",
       mode = { "n", "o", "x" },
       ":DotNetToolsOutdated<CR>",
