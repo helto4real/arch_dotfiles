@@ -6,12 +6,12 @@
   ],
   "modules-right": [
     "clock",
-    "wireplumber",
+    "custom/volume",
     "network",
-    "disk",
-    "temperature",
-    "cpu",
-    "memory"
+    "custom/disk",
+    "custom/temperature",
+    "custom/cpu",
+    "custom/memory"
     //"tray",
     // "custom/power"
   ],
@@ -54,26 +54,29 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d %H:%M}"
   },
-  "temperature": {
-    "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
-    "format": "CPU {temperatureC}°C "
+  "custom/temperature": {
+    "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh temp",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 5,
+    "escape": false
   },
   "network": {
-    "format-wifi": "{essid}",
-    "format-ethernet": "ETH-IP: {ipaddr}",
-    "format-linked": "{ifname} (No IP)",
+    "format-wifi": "NET {essid}",
+    "format-ethernet": "ETH {ipaddr}",
+    "format-linked": "NET {ifname} NO IP",
     "format-disconnected": "󰤮 Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
-  "wireplumber": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
+  "custom/volume": {
+    "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh volume",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 2,
+    "escape": false,
     "on-click": "ghostty --class=Wiremix -e wiremix",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
   },
   //"pulseaudio": {
   //	"format": "{icon}  {volume}%",
@@ -92,19 +95,26 @@
     "icon-size": 13,
     "spacing": 5,
   },
-  "disk": {
+  "custom/disk": {
+    "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh disk",
+    "return-type": "json",
+    "format": "{}",
     "interval": 30,
-    "format": "ROOT {percentage_free}% FREE",
-    "path": "/"
+    "escape": false
   },
-  "memory": {
-    "interval": 30,
-    "format": "RAM {used:0.1f}G/{total:0.1f}G "
+  "custom/memory": {
+    "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh memory",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 5,
+    "escape": false
   },
-  "cpu": {
-    "interval": 10,
-    "format": "CPU {}% ",
-    "max-length": 20,
+  "custom/cpu": {
+    "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh cpu",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 3,
+    "escape": false,
     "on-click": "ghostty -e btop"
   }
 }

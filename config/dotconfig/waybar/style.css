@@ -1,8 +1,32 @@
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
+
 * {
   border: none;
   border-radius: 0;
   font-family: Iosevka Nerd Font;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   min-height: 0;
   padding: 0;
@@ -10,107 +34,123 @@
 }
 
 window#waybar {
-  background: #12131a;
-  color: white;
+  background: @crust;
+  border-bottom: 1px solid @surface1;
+  color: @text;
 }
 
-#wireplumber,
-#clock,
-#cpu,
-#memory,
-#battery,
-#disk,
-#temperature,
-#workspaces,
-#network {
-  padding: 0px 10px;
-  margin-right: 6px;
-} 
+tooltip {
+  background: alpha(@base, 0.96);
+  border: 1px solid @surface1;
+  border-radius: 6px;
+}
+
+tooltip label {
+  color: @text;
+  padding: 4px 8px;
+}
 
 #workspaces {
-  background-color: #1d202e;
-  margin: 5px;
-  margin-left: 6px;
-  border-radius: 5px;
+  background: transparent;
+  margin: 3px 0 3px 6px;
+  padding: 0 2px;
 }
+
 #workspaces button {
-  padding: 0px 8px;
-  color: #b48ead;
-  /* color: rgba(255, 158, 100, 0.8); */
+  background: transparent;
+  color: @subtext0;
+  margin: 0 1px;
+  padding: 0 8px;
+  border-radius: 4px;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid transparent;
 }
 
-#workspaces button.focused {
-  color: #b48ead;
-  background-color: #2b3251;
-  border-radius: 5px;
+#workspaces button:hover {
+  background: alpha(@surface0, 0.75);
+  color: @lavender;
+  box-shadow: none;
+  text-shadow: none;
 }
 
-#workspaces button.hover {
-  background-color: #2b3251;
-  color: #b48ead;
-  /* color: rgba(59, 66, 97, 0.5); */
-  border-radius: 5px;
-}
-
+#workspaces button.focused,
 #workspaces button.active {
-  color: #b48ead;
-  background-color: #3b4261;
-  border-radius: 5px;
+  background: @mauve;
+  color: @crust;
+  border-top-color: @pink;
+  border-bottom-color: @pink;
 }
 
-#custom-date {
-  color: #b48ead;
-  /* color: #7dcfff; */
-}
-
-#custom-power {
-  color: #24283b;
-  background-color: #db4b4b;
-  border-radius: 5px;
-  margin-right: 10px;
-  padding: 0px 10px;
+#clock,
+#network,
+#custom-volume,
+#custom-disk,
+#custom-temperature,
+#custom-cpu,
+#custom-memory {
+  background: transparent;
+  color: @text;
+  margin: 3px 0;
+  padding: 0 10px;
+  border-left: 1px solid @surface0;
 }
 
 #clock {
-  background-color: #1d202e;
-  color: #b48ead;
-  border-radius: 0px 5px 5px 0px;
+  color: @lavender;
+  border-left: none;
 }
 
 #network {
-  color: #b48ead;
-  border-radius: 5px 0px 0px 5px;
+  color: @sky;
 }
 
-#wireplumber {
-  color: #b48ead;
-  background-color: #1d202e;
-}
-#temperature {
-  background-color: #24283b;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  color: #b48ead;
+#network.disconnected {
+  color: @red;
 }
 
-#disk {
-  color: #b48ead;
-  background-color: #24283b;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+#custom-volume {
+  color: @peach;
 }
 
-#memory {
-  background-color: #24283b;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  color: #b48ead;
+#custom-volume.muted {
+  color: @surface2;
 }
 
-#cpu {
-  background-color: #24283b;
-  color: #b48ead;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+#custom-disk {
+  color: @green;
 }
 
+#custom-temperature {
+  color: @peach;
+}
+
+#custom-cpu {
+  color: @mauve;
+}
+
+#custom-memory {
+  color: @blue;
+  margin-right: 8px;
+}
+
+#custom-disk.warning,
+#custom-temperature.warning,
+#custom-cpu.warning,
+#custom-memory.warning {
+  color: @yellow;
+}
+
+#custom-disk.critical,
+#custom-temperature.critical,
+#custom-cpu.critical,
+#custom-memory.critical {
+  color: @red;
+}
+
+#custom-power {
+  color: @crust;
+  background: @red;
+  border-radius: 4px;
+  margin: 3px 8px 3px 6px;
+  padding: 0 10px;
+}
