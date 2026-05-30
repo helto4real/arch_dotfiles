@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-hyprctl dispatch exec "[silent] google-chrome-stable --new-window https://chatgpt.com/ https://gemini.google.com/ https://grok.com/"
+hyprctl dispatch exec "[silent] google-chrome-stable --new-window https://chatgpt.com/?temporary-chat=true https://gemini.google.com/ https://grok.com/"
 
 for _ in {1..10}; do
   sleep 1
