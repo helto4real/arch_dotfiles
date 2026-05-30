@@ -3,6 +3,11 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        ["*"] = {
+          keys = {
+            { "<leader>cc", false, mode = { "n", "x" } },
+          },
+        },
         pyright = {
           before_init = function(_, config)
             -- Ask pyenv for the specific python path for the current directory
