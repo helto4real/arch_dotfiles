@@ -1,6 +1,6 @@
 return {
-  -- dir = "~/git/dotnet-tools",
-  "helto4real/dotnet-tools.vim",
+  dir = "/home/thhel/git/dotnet-tools",
+  name = "dotnet-tools.vim",
   event = "VeryLazy",
   dependencies = {
     "plenary.nvim",
