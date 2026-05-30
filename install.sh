@@ -304,7 +304,6 @@ _install_apps() {
   packages=(
     "firefox"
     "discord"
-    "caprine"
     "obsidian"
     "1password"
     "imagemagick-full"
