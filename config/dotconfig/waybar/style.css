@@ -82,11 +82,12 @@ tooltip label {
 }
 
 #clock,
-#network,
 #custom-volume,
 #custom-disk,
 #custom-temperature,
 #custom-cpu,
+#custom-gpu,
+#custom-vram,
 #custom-memory {
   background: transparent;
   color: @text;
@@ -100,16 +101,9 @@ tooltip label {
   border-left: none;
 }
 
-#network {
-  color: @sky;
-}
-
-#network.disconnected {
-  color: @red;
-}
-
 #custom-volume {
   color: @peach;
+  border-left: none;
 }
 
 #custom-volume.muted {
@@ -122,20 +116,43 @@ tooltip label {
 
 #custom-temperature {
   color: @peach;
+  border-left: none;
 }
 
 #custom-cpu {
   color: @mauve;
 }
 
+#custom-gpu {
+  color: @sapphire;
+  border-left: none;
+}
+
+#custom-vram {
+  color: @lavender;
+  margin-right: 8px;
+}
+
 #custom-memory {
   color: @blue;
-  margin-right: 8px;
+}
+
+#custom-group-trace-a,
+#custom-group-trace-b,
+#custom-group-trace-c {
+  background: transparent;
+  color: transparent;
+  margin: 3px 3px;
+  padding: 0 6px;
+  border-left: 1px solid @surface0;
+  border-right: 1px solid @surface0;
 }
 
 #custom-disk.warning,
 #custom-temperature.warning,
 #custom-cpu.warning,
+#custom-gpu.warning,
+#custom-vram.warning,
 #custom-memory.warning {
   color: @yellow;
 }
@@ -143,6 +160,8 @@ tooltip label {
 #custom-disk.critical,
 #custom-temperature.critical,
 #custom-cpu.critical,
+#custom-gpu.critical,
+#custom-vram.critical,
 #custom-memory.critical {
   color: @red;
 }

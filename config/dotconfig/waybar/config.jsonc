@@ -6,12 +6,16 @@
   ],
   "modules-right": [
     "clock",
+    "custom/group-trace-a",
     "custom/volume",
-    "network",
     "custom/disk",
+    "custom/group-trace-b",
     "custom/temperature",
     "custom/cpu",
-    "custom/memory"
+    "custom/memory",
+    "custom/group-trace-c",
+    "custom/gpu",
+    "custom/vram"
     //"tray",
     // "custom/power"
   ],
@@ -54,19 +58,24 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d %H:%M}"
   },
+  "custom/group-trace-a": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/group-trace-b": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/group-trace-c": {
+    "format": " ",
+    "tooltip": false
+  },
   "custom/temperature": {
     "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh temp",
     "return-type": "json",
     "format": "{}",
     "interval": 5,
     "escape": false
-  },
-  "network": {
-    "format-wifi": "NET {essid}",
-    "format-ethernet": "ETH {ipaddr}",
-    "format-linked": "NET {ifname} NO IP",
-    "format-disconnected": "󰤮 Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
   "custom/volume": {
     "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh volume",
@@ -116,6 +125,22 @@
     "interval": 3,
     "escape": false,
     "on-click": "ghostty -e btop"
+  },
+  "custom/gpu": {
+    "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh gpu",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 3,
+    "escape": false,
+    "on-click": "ghostty -e nvtop"
+  },
+  "custom/vram": {
+    "exec": "bash /home/thhel/.config/waybar/bin/waybar-meter.sh vram",
+    "return-type": "json",
+    "format": "{}",
+    "interval": 5,
+    "escape": false,
+    "on-click": "ghostty -e nvtop"
   }
 }
 //// -*- mode: jsonc -*-

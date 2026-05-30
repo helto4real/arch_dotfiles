@@ -10,7 +10,9 @@ pink="#f5c2e7"
 peach="#fab387"
 green="#a6e3a1"
 red="#f38ba8"
+sapphire="#74c7ec"
 blue="#89b4fa"
+lavender="#b4befe"
 sky="#89dceb"
 
 json_escape() {
@@ -69,7 +71,7 @@ bar() {
 
 volume() {
   if ! command -v wpctl >/dev/null 2>&1; then
-    emit "<span color='$subtext'>VOL n/a</span> $(bar 0 "$track" "$track")" "warning" "wpctl not found"
+    emit "<span color='$subtext'> n/a</span> $(bar 0 "$track" "$track")" "warning" "wpctl not found"
     return
   fi
 
@@ -77,7 +79,7 @@ volume() {
   line=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null || true)
 
   if [[ -z "$line" ]]; then
-    emit "<span color='$subtext'>VOL n/a</span> $(bar 0 "$track" "$track")" "warning" "No default audio sink"
+    emit "<span color='$subtext'> n/a</span> $(bar 0 "$track" "$track")" "warning" "No default audio sink"
     return
   fi
 
@@ -102,7 +104,7 @@ volume() {
     class="high"
   fi
 
-  emit "<span color='$peach'>$icon VOL ${percent}%</span> $(bar "$percent" "$peach" "$pink")" "$class" "Volume: ${percent}%"
+  emit "<span color='$peach'>$icon ${percent}%</span> $(bar "$percent" "$peach" "$pink")" "$class" "Volume: ${percent}%"
 }
 
 disk() {
@@ -110,7 +112,7 @@ disk() {
   line=$(df -P / 2>/dev/null | awk 'NR == 2 {print $2, $3, $4, $5}' || true)
 
   if [[ -z "$line" ]]; then
-    emit "<span color='$subtext'>ROOT n/a</span> $(bar 0 "$track" "$track")" "warning" "Unable to read / disk usage"
+    emit "<span color='$subtext'>DISK n/a</span> $(bar 0 "$track" "$track")" "warning" "Unable to read / disk usage"
     return
   fi
 
@@ -121,7 +123,23 @@ disk() {
   (( free_percent < 15 )) && class="critical"
   (( free_percent >= 15 && free_percent < 30 )) && class="warning"
 
-  emit "<span color='$green'>ROOT ${free_percent}% FREE</span> $(bar "$free_percent" "$green" "$peach")" "$class" "Root free: ${free_percent}%"
+  emit "<span color='$green'>DISK ${free_percent}%</span> $(bar "$free_percent" "$green" "$peach")" "$class" "Root free: ${free_percent}%"
+}
+
+nvidia_query() {
+  local fields="$1"
+  local output
+
+  if ! command -v nvidia-smi >/dev/null 2>&1; then
+    return 1
+  fi
+
+  output=$(nvidia-smi --query-gpu="$fields" --format=csv,noheader,nounits 2>/dev/null) || return 1
+  awk 'NF { gsub(/^[ \t]+|[ \t]+$/, "", $0); print; exit }' <<<"$output"
+}
+
+first_number() {
+  awk -v value="$1" 'BEGIN { if (match(value, /[0-9]+([.][0-9]+)?/)) print substr(value, RSTART, RLENGTH) }'
 }
 
 temp() {
@@ -212,11 +230,69 @@ memory() {
   emit "<span color='$blue'>RAM ${used_g}G/${total_g}G</span> $(bar "$percent" "$blue" "$mauve")" "$class" "Memory: ${percent}% used"
 }
 
+gpu() {
+  local usage class
+  usage=$(nvidia_query "utilization.gpu" || true)
+
+  if [[ -z "$usage" ]]; then
+    emit "<span color='$subtext'>GPU n/a</span> $(bar 0 "$track" "$track")" "warning" "nvidia-smi unavailable or NVIDIA driver not running"
+    return
+  fi
+
+  usage=$(first_number "$usage")
+  if [[ -z "$usage" ]]; then
+    emit "<span color='$subtext'>GPU n/a</span> $(bar 0 "$track" "$track")" "warning" "Unable to parse NVIDIA GPU usage"
+    return
+  fi
+
+  usage=$(awk -v value="$usage" 'BEGIN { printf "%d", value + 0.5 }')
+  usage=$(clamp_percent "$usage")
+  class="normal"
+  (( usage >= 90 )) && class="critical"
+  (( usage >= 75 && usage < 90 )) && class="warning"
+
+  emit "<span color='$sapphire'>GPU ${usage}%</span> $(bar "$usage" "$sapphire" "$sky")" "$class" "GPU usage: ${usage}%"
+}
+
+vram() {
+  local line used total percent used_g total_g class
+  line=$(nvidia_query "memory.used,memory.total" || true)
+
+  if [[ -z "$line" ]]; then
+    emit "<span color='$subtext'>VRAM n/a</span> $(bar 0 "$track" "$track")" "warning" "nvidia-smi unavailable or NVIDIA driver not running"
+    return
+  fi
+
+  IFS=',' read -r used total <<<"$line"
+  used=$(first_number "$used")
+  total=$(first_number "$total")
+
+  if [[ -z "$used" || -z "$total" || "$total" == "0" ]]; then
+    emit "<span color='$subtext'>VRAM n/a</span> $(bar 0 "$track" "$track")" "warning" "Unable to parse NVIDIA VRAM usage"
+    return
+  fi
+
+  used=$(awk -v value="$used" 'BEGIN { printf "%d", value + 0 }')
+  total=$(awk -v value="$total" 'BEGIN { printf "%d", value + 0 }')
+
+  percent=$(( (100 * used) / total ))
+  percent=$(clamp_percent "$percent")
+  used_g=$(awk -v mib="$used" 'BEGIN { printf "%.1f", mib / 1024 }')
+  total_g=$(awk -v mib="$total" 'BEGIN { printf "%.1f", mib / 1024 }')
+  class="normal"
+  (( percent >= 90 )) && class="critical"
+  (( percent >= 75 && percent < 90 )) && class="warning"
+
+  emit "<span color='$lavender'>VRAM ${used_g}G/${total_g}G</span> $(bar "$percent" "$lavender" "$blue")" "$class" "VRAM: ${percent}% used"
+}
+
 case "${1:-}" in
   volume) volume ;;
   disk) disk ;;
   temp | temperature) temp ;;
   cpu) cpu ;;
+  gpu) gpu ;;
+  vram) vram ;;
   memory | mem) memory ;;
-  *) emit "<span color='$subtext'>meter?</span> $(bar 0 "$track" "$track")" "warning" "Usage: waybar-meter.sh volume|disk|temp|cpu|memory" ;;
+  *) emit "<span color='$subtext'>meter?</span> $(bar 0 "$track" "$track")" "warning" "Usage: waybar-meter.sh volume|disk|temp|cpu|gpu|vram|memory" ;;
 esac
